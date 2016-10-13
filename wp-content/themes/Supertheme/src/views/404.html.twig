@@ -1,8 +1,11 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    <h1>404 page not found</h1>
+    <h1 class="text-center">404, WE COULDN'T FIND IT</h1>
 {% endblock %}
 {% block content %}
-    <p>Sorry, we couldn't find what you're looking for.</p>
+    <div class="text-center">
+        <h4>We're just as Hangry as you</h4>
+        <a href="{{ shop_url }}" class="primary button">Buy Some Goodies</a>
+    </div>
 {% endblock %}

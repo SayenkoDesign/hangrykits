@@ -27,7 +27,8 @@ parameters:
   wordpress.sidebars:
     - { id: "sample_sidebar", name: "sample sidebar", description: "sample sidebar managed by config file" }
   wordpress.styles:
-    - { id: "app", source: "%template_uri%/web/stylesheets/app.css", deps: ~ }
+    - { id: "montserrat", source: "https://fonts.googleapis.com/css?family=Montserrat", deps: ~ }
+    - { id: "app", source: "%template_uri%/web/stylesheets/app.css", deps: ["montserrat"] }
   wordpress.scripts:
     - { id: "app", source: "%template_uri%/web/scripts-min/app.min.js", deps: ~, header: false }
 
@@ -99,19 +100,13 @@ services:
   twig.form_extension:
     class: "Symfony\\Bridge\\Twig\\Extension\\FormExtension"
     arguments: ["@twig.form_renderer"]
-  twig.acf:
-    class: "Supertheme\\WordPress\\Twig\\ACF"
-  twig.wordpress:
-    class: "Supertheme\\WordPress\\Twig\\WordPress"
-  twig.supertheme:
-    class: "Supertheme\\WordPress\\Twig\\SuperTheme"
-    arguments: ["@twig.acf", "@twig.wordpress"]
   twig.environment:
     class: "Twig_Environment"
     arguments: ["@twig.loader", "%twig.options%"]
     calls:
       - ["addExtension", ["@twig.debug"]]
-      - ["addExtension", ["@twig.preg"]]
       - ["addExtension", ["@twig.form_translation"]]
       - ["addExtension", ["@twig.form_extension"]]
-      - ["addGlobal", ["SP", "@twig.supertheme"]]
+  # git timber with it
+  timber.environment:
+    class: "Timber\\Timber"

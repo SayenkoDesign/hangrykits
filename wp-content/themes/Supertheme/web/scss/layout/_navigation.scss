@@ -1,0 +1,46 @@
+.title-bar {
+  padding: $global-margin*1.5 0;
+  .menu {
+    justify-content: space-between;
+    li {
+      display: none;
+      @include breakpoint(large) {
+        display: flex;
+      }
+    }
+    a {
+      text-transform: uppercase;
+      color: $light-gray;
+      &:hover {
+        color: $white;
+      }
+    }
+    .home {
+      a {
+        font-size:0;
+        background-image: url('../images/menu-logo.png');
+        width: 170px;
+        height: 71px;
+      }
+    }
+    .home, .menu-toggle, .cart{
+      display: flex;
+    }
+  }
+}
+
+.off-canvas-wrapper {
+  background-color: $dark-gray;
+  .close-button {
+    color: $light-gray;
+    &:hover {
+      color: $white;
+    }
+  }
+  .menu a {
+    color: $light-gray;
+    &:hover {
+      color: $white;
+    }
+  }
+}

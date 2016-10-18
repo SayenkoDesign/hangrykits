@@ -42,6 +42,14 @@
 
 @import 'util/util';
 
+@font-face {
+  font-family: Cubano;
+  src: url('../fonts/Cubano-Regular.otf'),
+  url('../fonts/Cubano-Regular.woff2') format('woff2'),
+  url('../fonts/Cubano-Regular.woff') format('woff');
+  font-weight: bold;
+}
+
 // 1. Global
 // ---------
 
@@ -49,20 +57,20 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #2199e8,
-  secondary: #777,
+  primary: #f58024,
+  secondary: #6c544e,
   success: #3adb76,
   warning: #ffae00,
   alert: #ec5840,
 );
-$light-gray: #e6e6e6;
+$light-gray: #f0f1f1;
 $medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
+$dark-gray: #383838;
 $black: #0a0a0a;
 $white: #fefefe;
-$body-background: $white;
-$body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-background: $light-gray;
+$body-font-color: #5c5b5c;
+$body-font-family: 'Montserrat', sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -80,7 +88,7 @@ $print-transparent-backgrounds: true;
 
 $breakpoints: (
   small: 0,
-  medium: 640px,
+  medium: 700px,
   large: 1024px,
   xlarge: 1200px,
   xxlarge: 1440px,
@@ -103,8 +111,8 @@ $block-grid-max: 8;
 // ------------------
 
 $fa-font-path: "../libs/font-awesome/fonts";
-$header-font-family: $body-font-family;
-$header-font-weight: $global-weight-normal;
+$header-font-family: Cubano;
+$header-font-weight: $global-weight-bold;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
@@ -117,10 +125,10 @@ $header-sizes: (
     'h6': 16,
   ),
   medium: (
-    'h1': 48,
-    'h2': 40,
-    'h3': 31,
-    'h4': 25,
+    'h1': 40,
+    'h2': 36,
+    'h3': 32,
+    'h4': 26,
     'h5': 20,
     'h6': 16,
   ),
@@ -398,12 +406,12 @@ $meter-fill-bad: $alert-color;
 // --------------
 
 $offcanvas-size: 250px;
-$offcanvas-background: $light-gray;
+$offcanvas-background: $dark-gray;
 $offcanvas-zindex: -1;
 $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
 $offcanvas-fixed-reveal: true;
-$offcanvas-exit-background: rgba($white, 0.25);
+$offcanvas-exit-background: rgba($black, 0.5);
 $maincontent-class: 'off-canvas-content';
 $maincontent-shadow: 0 0 10px rgba($black, 0.5);
 
@@ -535,7 +543,7 @@ $thumbnail-radius: $global-radius;
 // 34. Title Bar
 // -------------
 
-$titlebar-background: $black;
+$titlebar-background: rgba($black, .8);
 $titlebar-color: $white;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;

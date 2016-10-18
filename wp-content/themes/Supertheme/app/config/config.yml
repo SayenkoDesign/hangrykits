@@ -23,7 +23,10 @@ parameters:
   wordpress.image_sizes:
     fullscreen: [1920, 1080, true]
   wordpress.menus:
-    primary_menu: "Primary Menu"
+    loggedin_main_menu: "Main Menu for logged in users"
+    loggedout_main_menu: "Main Menu for guest (users who are not logged in)"
+    loggedin_side_menu: "Side Menu for logged in users"
+    loggedout_side_menu: "Side Menu for guest (users who are not logged in)"
   wordpress.sidebars:
     - { id: "sample_sidebar", name: "sample sidebar", description: "sample sidebar managed by config file" }
   wordpress.styles:

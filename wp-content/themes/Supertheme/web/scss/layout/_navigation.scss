@@ -1,5 +1,9 @@
 .title-bar {
   padding: $global-margin*1.5 0;
+  transition: background-color 500ms;
+  &.is-stuck {
+    background-color: rgba($black, 0.8);
+  }
   .menu {
     justify-content: space-between;
     li {

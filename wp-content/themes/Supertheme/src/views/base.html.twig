@@ -67,7 +67,31 @@
                 {% endblock %}
 
                 {% block footer %}
-                    <div class="row column">Copyright {{"now"|date('Y')}}</div>
+                    <footer class="footer">
+                        <div class="row top">
+                            <div class="small-12 large-4 columns"><ul class="no-bullet">{{ footer_1 }}</ul></div>
+                            <div class="small-12 large-8 columns">
+                                <div class="row">
+                                    <div class="small-12 medium-4 columns"><ul class="no-bullet">{{ footer_2 }}</ul></div>
+                                    <div class="small-12 medium-4 columns"><ul class="no-bullet">{{ footer_3 }}</ul></div>
+                                    <div class="small-12 medium-4 columns"><ul class="no-bullet">{{ footer_4 }}</ul></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row bottom align-middle">
+                            <div class="shrink column medium-order-2">
+                                <ul class="horizontal menu follow">
+                                    {% if youtube %}<li><a href="{{ youtube }}" target="_blank"><i class="fa fa-play"></i></a></li>{% endif %}
+                                    {% if facebook %}<li><a href="{{ facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>{% endif %}
+                                    {% if instagram %}<li><a href="{{ instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>{% endif %}
+                                    {% if pinterest %}<li><a href="{{ pinterest }}" target="_blank"><i class="fa fa-pinterest"></i></a></li>{% endif %}
+                                </ul>
+                            </div>
+                            <div class="expand column medium-order-1">
+                                {% if copyright %}{{ copyright }}{% else %}&copy; {{ 'now'|date('Y') }} All Rights Reserved{% endif %}
+                            </div>
+                        </div>
+                    </footer>
                 {% endblock %}
             </div>
         </div>

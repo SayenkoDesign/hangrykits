@@ -28,11 +28,14 @@ parameters:
     loggedin_side_menu: "Side Menu for logged in users"
     loggedout_side_menu: "Side Menu for guest (users who are not logged in)"
   wordpress.sidebars:
-    - { id: "sample_sidebar", name: "sample sidebar", description: "sample sidebar managed by config file" }
+    - { id: "footer_1", name: "Footer 1", description: "First footer column" }
+    - { id: "footer_2", name: "Footer 2", description: "Second footer column" }
+    - { id: "footer_3", name: "Footer 3", description: "Third footer column" }
+    - { id: "footer_4", name: "Footer 4", description: "Fourth footer column" }
   wordpress.styles:
     - { id: "app", source: "%template_uri%/web/stylesheets/app.css", deps: ~ }
   wordpress.scripts:
-    - { id: "app", source: "%template_uri%/web/scripts-min/app.min.js", deps: ~, header: false }
+    - { id: "app", source: "%template_uri%/web/scripts-min/app.min.js", deps: ['jquery'], header: false }
 
 services:
   # just the basics

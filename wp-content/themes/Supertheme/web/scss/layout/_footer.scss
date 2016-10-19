@@ -1,0 +1,180 @@
+.footer {
+  padding: $global-padding*2 0;
+  background-color: map-get($foundation-palette, secondary);
+  color: $medium-gray;
+  font-size: rem-calc(14px);
+  h1, h2, h3, h4, h5, h6 {
+    color: map-get($foundation-palette, primary);
+    font-weight: $global-weight-normal;
+    font-family: $body-font-family;
+    text-transform: uppercase;
+  }
+  ul:not(.horizontal) {
+    list-style-type: none;
+    margin-left: 0;
+    flex-wrap: wrap;
+    li {
+      flex: 0 0 100%;
+      max-width: 100%;
+      a {
+        padding: $global-padding*0.5 0;
+      }
+    }
+  }
+  .menu, .product-categories {
+    font-size: rem-calc(12px);
+    a {
+      color: $medium-gray;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+  .product-categories {
+    li {
+      @include breakpoint(large) {
+        display: inline-block;
+        flex-grow: 1;
+        width: calc(40% - 4px);
+      }
+    }
+  }
+  .follow {
+    @include breakpoint(small only) {
+      margin-bottom: $global-margin;
+    }
+    li {
+      margin-left: $global-margin;
+    }
+    a {
+      background-color: map-get($foundation-palette, primary);
+      border-radius: 100%;
+      width: rem-calc(36px);
+      height: rem-calc(36px);
+      &:hover {
+      background-color: scale-color($anchor-color, $lightness: -14%);
+      }
+    }
+    .fa {
+      color: map-get($foundation-palette, secondary);
+      font-size: rem-calc(20px);
+      line-height: 1;
+      position: relative;
+      top: -3px;
+      left: -6px;
+    }
+    .fa-facebook {
+      left: -4px;
+    }
+    .fa-play {
+      left: -4px;
+    }
+  }
+  .widget_sp_image img {
+    margin: 0 auto $global-margin*2 auto;
+    display: block;
+  }
+
+  // form
+  .gform_wrapper {
+    position: relative;
+    max-width: rem-calc(400px);
+    margin: 0 auto;
+  }
+  .gform_wrapper ul.gform_fields li.gfield {
+    padding: 0;
+  }
+  .gform_wrapper ul li.gfield {
+    margin: 0;
+  }
+  .gform_wrapper .top_label div.ginput_container {
+    margin: 0;
+  }
+  .gform_wrapper .top_label .gfield_label {
+    display: none;
+  }
+  .gform_wrapper .top_label input.medium, .gform_wrapper .top_label select.medium {
+    margin: 0;
+    width: 100%;
+    padding: rem-calc(8px) rem-calc(16px) !important;
+    height: 45px;
+    border-bottom-left-radius: rem-calc(16px);
+    border-top-left-radius: rem-calc(16px);
+    background-color: $medium-gray;
+    box-shadow: none;
+    &:focus, &:active {
+      border: none;
+      box-shadow: none;
+    }
+  }
+  .gform_wrapper .gform_body {
+    width: calc(100% - 85px);
+    display: inline-block;
+  }
+  .gform_wrapper .gform_footer {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .gform_validation_error.gform_wrapper .gform_footer {
+    top: rem-calc(105px);
+  }
+  .gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type="submit"],
+  .gform_wrapper .gform_page_footer input.button, .gform_wrapper .gform_page_footer input[type="submit"] {
+    margin: 0;
+    font-size: rem-calc(16px);
+    font-weight: $global-weight-bold;
+    font-family: $header-font-family;
+    padding: 0.85em !important;
+    border-bottom-right-radius: rem-calc(16px);
+    border-top-right-radius: rem-calc(16px);
+  }
+  .gform_wrapper input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not([type="file"]) {
+    min-height: 0 !important;
+    line-height: 1 !important;
+  }
+
+  // error
+  .gform_wrapper div.validation_error {
+    color: map-get($foundation-palette, alert);
+    border-color: map-get($foundation-palette, alert);
+    font-size: rem-calc(14px);
+    font-weight: $global-weight-normal;
+  }
+  .gform_wrapper .validation_message {
+    margin: 0;
+    color: map-get($foundation-palette, alert);
+  }
+  .gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), .gform_wrapper li.gfield_error textarea {
+    border-color: map-get($foundation-palette, alert);
+    border-right: none;
+  }
+  .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container, .gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label {
+    margin: 0;
+  }
+  .gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+    background-color: transparent;
+    border: none;
+  }
+
+  // placeholder
+  ::-webkit-input-placeholder {
+    color: map-get($foundation-palette, secondary);
+    opacity: 1;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: map-get($foundation-palette, secondary);
+    opacity: 1;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: map-get($foundation-palette, secondary);
+    opacity: 1;
+  }
+  :-ms-input-placeholder {
+    color: map-get($foundation-palette, secondary);
+    opacity: 1;
+  }
+}

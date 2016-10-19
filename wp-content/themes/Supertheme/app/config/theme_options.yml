@@ -102,3 +102,50 @@ fields:
     max_height:  ""
     max_size:  ""
     mime_types:  ""
+  -
+    key:  "field_copyright"
+    label:  "Copyright"
+    name:  "copyright"
+    type:  "wysiwyg"
+    toolbar: "basic"
+    media_upload: 0
+    instructions:  ""
+    required:  0
+    conditional_logic:  0
+    wrapper:  { width:  "", class:  "", id:  "" }
+  -
+    key:  "field_youtube"
+    label:  "Youtube"
+    name:  "youtube"
+    type:  "url"
+    instructions:  ""
+    required:  0
+    conditional_logic:  0
+    wrapper:  { width:  "25", class:  "", id:  "" }
+  -
+    key:  "field_facebook"
+    label:  "Facebook"
+    name:  "facebook"
+    type:  "url"
+    instructions:  ""
+    required:  0
+    conditional_logic:  0
+    wrapper:  { width:  "25", class:  "", id:  "" }
+  -
+    key:  "field_instagram"
+    label:  "Instagram"
+    name:  "instagram"
+    type:  "url"
+    instructions:  ""
+    required:  0
+    conditional_logic:  0
+    wrapper:  { width:  "25", class:  "", id:  "" }
+  -
+    key:  "field_pinterest"
+    label:  "Pinterest"
+    name:  "pinterest"
+    type:  "url"
+    instructions:  ""
+    required:  0
+    conditional_logic:  0
+    wrapper:  { width:  "25", class:  "", id:  "" }

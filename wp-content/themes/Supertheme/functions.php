@@ -2,6 +2,14 @@
 require_once __DIR__.'/app/bootstrap.php';
 require_once __DIR__.'/src/functions.php';
 
+// register some acf fields
+if(function_exists('acf_add_local_field_group')){
+    $parser = new \Symfony\Component\Yaml\Parser();
+    $fields = $parser->parse(file_get_contents(__DIR__.'/app/config/header.yml'));
+    acf_add_local_field_group($fields);
+}
+
+// global twig vars
 add_filter('timber/context', function($data){
     $data['favicon'] = get_field('favicon', 'option') ?: get_field('mobile_logo', 'option');
     $data['shop_url'] = get_permalink(wc_get_page_id('shop'));
@@ -32,10 +40,13 @@ add_filter('timber/context', function($data){
     $data['pinterest'] = get_field('pinterest', 'option');
     // copyright
     $data['copyright'] = get_field('copyright', 'option');
-    
+    // hero
+    $data['hero_background'] = get_field('heading_default_background');
+
     return $data;
 });
 
+// add menu and cart icons
 add_filter('wp_nav_menu_items', function ($items, $args) {
     if(!is_object($args) || !property_exists($args, 'location')){
         return $items;
@@ -44,9 +55,11 @@ add_filter('wp_nav_menu_items', function ($items, $args) {
         $items = '<li class="menu-toggle"><a data-toggle="offCanvas"><i class="fa fa-bars"></i></a></li>'.$items;
         $items .= '<li class="cart"><a data-toggle="offCanvas"><i class="fa fa-shopping-cart"></i></a></li>';
     }
+
     return $items;
 }, 10, 2 );
 
+// change widget titles to h6
 add_filter('widget_title', function($title) {
-    return '<h6>'.$title.'</h6>';
+    return '<h5>'.$title.'</h5>';
 });

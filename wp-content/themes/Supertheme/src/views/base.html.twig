@@ -34,7 +34,6 @@
                 <a class="close-button" aria-label="Close menu" type="button" data-close>
                     <span aria-hidden="true">&times;</span>
                 </a>
-
                 {{ small_menu }}
             </div>
 
@@ -49,6 +48,26 @@
                             </div>
                         </div>
                     </div>
+                {% endblock %}
+
+                {% block hero %}
+                    <section
+                            class="hero text-center"
+                            style="background-image: url('{% if post.get_field('header_background') %}{{ TimberImage(post.get_field('header_background')).src }}{% else %}{{ hero_background.url }}{% endif %}')"
+                    >
+                        <div class="row column">
+                            <h1>{% if post.get_field('header_heading') %}{{ post.get_field('header_heading') }}{% else %}{{ post.title }}{% endif %}</h1>
+                            <div class="content">
+                                {{ post.get_field('header_content') }}
+                            </div>
+                            {% if post.get_field('header_share') %}
+                                <h6>Share the Love!</h6>
+                                <span class='st_facebook_large' displayText='Facebook'></span>
+                                <span class='st_twitter_large' displayText='Tweet'></span>
+                                <span class='st_pinterest_large' displayText='Pinterest'></span>
+                            {% endif %}
+                        </div>
+                    </section>
                 {% endblock %}
 
                 {% block body %}
@@ -84,7 +103,7 @@
                                     {% if youtube %}<li><a href="{{ youtube }}" target="_blank"><i class="fa fa-play"></i></a></li>{% endif %}
                                     {% if facebook %}<li><a href="{{ facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>{% endif %}
                                     {% if instagram %}<li><a href="{{ instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>{% endif %}
-                                    {% if pinterest %}<li><a href="{{ pinterest }}" target="_blank"><i class="fa fa-pinterest"></i></a></li>{% endif %}
+                                    {% if pinterest %}<li><a href="{{ pinterest }}" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>{% endif %}
                                 </ul>
                             </div>
                             <div class="expand column medium-order-1">

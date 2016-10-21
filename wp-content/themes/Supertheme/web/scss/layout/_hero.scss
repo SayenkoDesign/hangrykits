@@ -1,0 +1,55 @@
+.hero {
+  text-align: center;
+  font-size: rem-calc(21px);
+  background-size: cover;
+  color: $light-gray;
+  padding: $global-padding*12 0 $global-padding*2;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: $global-margin;
+  }
+  .row {
+    max-width: rem-calc(620px);
+  }
+  .content {
+    margin-bottom: $global-margin * 2;
+  }
+
+  .content + h6 {
+    margin-bottom: 0;
+  }
+  .stLarge {
+    background-image: none !important;
+    background-color: map-get($foundation-palette, primary);
+    border-radius: 100%;
+    width: rem-calc(36px);
+    height: rem-calc(36px);
+    &:hover {
+      background-color: scale-color($anchor-color, $lightness: -14%);
+      opacity: 1 !important;
+    }
+    &::before {
+      position: relative;
+      font-family: "FontAwesome";
+      color: map-get($foundation-palette, secondary);
+      font-size: rem-calc(20px);
+      top: 8px;
+      left: 0;
+    }
+  }
+  .st_facebook_large .stLarge {
+    &::before {
+      content: "\f09a";
+    }
+  }
+  .st_twitter_large .stLarge {
+    &::before {
+      content: "\f099";
+    }
+  }
+  .st_pinterest_large .stLarge {
+    &::before {
+      content: "\f231";
+    }
+  }
+}

@@ -52,7 +52,7 @@
       width: rem-calc(36px);
       height: rem-calc(36px);
       &:hover {
-      background-color: scale-color($anchor-color, $lightness: -14%);
+        background-color: scale-color($anchor-color, $lightness: -14%);
       }
     }
     .fa {
@@ -67,6 +67,9 @@
       left: -4px;
     }
     .fa-play {
+      left: -4px;
+    }
+    .fa-pinterest-p {
       left: -4px;
     }
   }

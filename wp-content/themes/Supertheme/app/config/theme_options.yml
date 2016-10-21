@@ -103,6 +103,22 @@ fields:
     max_size:  ""
     mime_types:  ""
   -
+    key:  "field_default_heading_background"
+    label:  "Default Heading Background"
+    name:  "header_background"
+    type:  "file"
+    instructions:  ""
+    required:  1,
+    conditional_logic:  0,
+    wrapper:  { width:  "", class:  "", id:  "" }
+    default_value:  ""
+    placeholder:  ""
+    prepend:  ""
+    append:  ""
+    maxlength:  ""
+    readonly:  0,
+    disabled:  0
+  -
     key:  "field_copyright"
     label:  "Copyright"
     name:  "copyright"

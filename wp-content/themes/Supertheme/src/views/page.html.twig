@@ -1,12 +1,20 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="row column">
-        <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-            <h1>{{post.title}}</h1>
-            <div>
-                {{post.content}}
-            </div>
-        </article>
-    </div>
+    {% if acf.content_builder is defined and acf.content_builder.value %}
+        {% for panel in acf.content_builder.value %}
+            <section class="panel {{ panel.acf_fc_layout }}">
+                {% include 'panels/'~panel.acf_fc_layout~'.html.twig' with {"panel": panel} only %}
+            </section>
+        {% endfor %}
+    {% else %}
+        <div class="row column">
+            <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+                <h1>{{post.title}}</h1>
+                <div>
+                    {{post.content}}
+                </div>
+            </article>
+        </div>
+    {% endif %}
 {% endblock %}

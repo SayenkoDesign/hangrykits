@@ -132,8 +132,7 @@
     font-weight: $global-weight-bold;
     font-family: $header-font-family;
     padding: 0.85em !important;
-    border-bottom-right-radius: rem-calc(16px);
-    border-top-right-radius: rem-calc(16px);
+    border-radius: 0 rem-calc(16px) rem-calc(16px) 0;
   }
   .gform_wrapper input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not([type="file"]) {
     min-height: 0 !important;

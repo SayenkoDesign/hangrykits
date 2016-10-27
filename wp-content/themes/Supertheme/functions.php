@@ -5,7 +5,11 @@ require_once __DIR__.'/src/functions.php';
 // register some acf fields
 if(function_exists('acf_add_local_field_group')){
     $parser = new \Symfony\Component\Yaml\Parser();
+    // header
     $fields = $parser->parse(file_get_contents(__DIR__.'/app/config/header.yml'));
+    acf_add_local_field_group($fields);
+    // content builder
+    $fields = $parser->parse(file_get_contents(__DIR__.'/app/config/content_builder.yml'));
     acf_add_local_field_group($fields);
 }
 
@@ -42,7 +46,8 @@ add_filter('timber/context', function($data){
     $data['copyright'] = get_field('copyright', 'option');
     // hero
     $data['hero_background'] = get_field('heading_default_background');
-
+    // woocommerce
+    $data['shop_url'] = get_permalink(wc_get_page_id('shop'));
     return $data;
 });
 
@@ -63,3 +68,9 @@ add_filter('wp_nav_menu_items', function ($items, $args) {
 add_filter('widget_title', function($title) {
     return '<h5>'.$title.'</h5>';
 });
+
+add_filter('timber_post_get_meta_field', function($value, $ID, $field_name, $post){
+    if($field_name == "content_builder") {
+    }
+    return $value;
+}, 10, 4);

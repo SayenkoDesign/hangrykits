@@ -1,0 +1,35 @@
+<div class="row text-center">
+    <div class="small-6 medium-4 large-3 columns medium-order-1">
+        <div class="point">
+            <img src="{{ panel.highlights[0].image.url }}" />
+            <h5>{{ panel.highlights[0].heading }}</h5>
+            <div>{{ panel.highlights[0].content }}</div>
+        </div>
+
+        <div class="point">
+            <img src="{{ panel.highlights[1].image.url }}" />
+            <h5>{{ panel.highlights[1].heading }}</h5>
+            <div>{{ panel.highlights[1].content }}</div>
+        </div>
+    </div>
+    <div class="small-6 medium-4 large-3 columns medium-order-3">
+        <div class="point">
+            <img src="{{ panel.highlights[2].image.url }}" />
+            <h5>{{ panel.highlights[2].heading }}</h5>
+            <div>{{ panel.highlights[2].content }}</div>
+        </div>
+
+        <div class="point">
+            <img src="{{ panel.highlights[3].image.url }}" />
+            <h5>{{ panel.highlights[3].heading }}</h5>
+            <div>{{ panel.highlights[3].content }}</div>
+        </div>
+    </div>
+    <div class="small-12 medium-4 large-6 columns medium-order-2">
+        <img src="{{ panel.main_image.url }}" />
+    </div>
+</div>
+<div class="row column text-center promotion-cta">
+    <h2>{{ panel.heading }}</h2>
+    <a href="{{ shop_url }}" class="primary button">Store</a>
+</div>

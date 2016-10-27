@@ -1,0 +1,15 @@
+<section class="hero expanded row column" style="background-image: url('{{ function('get_sub_field', 'background').url }}')">
+    <div class="columns text-center">
+        <img src="{{ function('get_sub_field', 'logo').url }}" alt="">
+        {{ function('get_sub_field', 'content') }}
+        {{ function('gravity_form', 1, false, false, false, null, true, 11, false ) }}
+        <div class="share">
+            <h6>Share the love!</h6>
+            <span class='st_facebook_large' displayText='Facebook'></span>
+            <span class='st_instagram_large' displayText='Instagram Badge'></span>
+            <span class='st_pinterest_large' displayText='Pinterest'></span>
+            <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+            <script type="text/javascript">stLight.options({publisher: "31abfba6-0978-4139-8479-d6e96f61d25f", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+        </div>
+    </div>
+</section>

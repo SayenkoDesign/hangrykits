@@ -1,6 +1,11 @@
+.sticky-container {
+  position: absolute;
+  width:100%;
+}
 .title-bar {
   padding: $global-margin*1.5 0;
   transition: background-color 500ms;
+  left: 0 !important;// prevents moving left when off canvas is open and scrolled down
   &.is-stuck {
     background-color: rgba($black, 0.8);
   }

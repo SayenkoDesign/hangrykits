@@ -1,0 +1,243 @@
+@import "settings";
+@import "font-awesome";
+@import "foundation";
+@include foundation-everything(true);
+@import "supertheme";
+
+/** typography **/
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+}
+
+::-webkit-input-placeholder {
+  color: $body-font-color;
+  opacity: 1;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: $body-font-color;
+  opacity: 1;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: $body-font-color;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: $body-font-color;
+  opacity: 1;
+}
+
+/** gravity forms **/
+.gform_wrapper {
+  margin: 0;
+}
+.gform_wrapper div.validation_error {
+  color: $alert-color;
+  border-color: $alert-color;
+  margin: 0 0 $global-margin 0;
+  padding: 0;
+}
+.gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+  border: none;
+  background-color: transparent;
+
+}
+.gform_wrapper .field_description_below .gfield_description {
+  padding-top: 0;
+  color: $alert-color;
+}
+.gform_wrapper .gform_footer {
+  margin: 0;
+  padding: 0;
+}
+.gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type="submit"], .gform_wrapper .gform_page_footer input.button, .gform_wrapper .gform_page_footer input[type="submit"] {
+  margin: 0;
+}
+.gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container, .gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label {
+  margin: 0;
+}
+.gform_wrapper input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not([type="file"]) {
+  line-height: 1.2;
+}
+
+/** hero **/
+section.hero {
+  color: $white;
+  background-size: cover;
+  background-position: bottom center;
+  overflow: hidden;
+  padding: $global-padding*4 0;
+  @include breakpoint(medium) {
+    padding: $global-padding*8 0;
+  }
+  @include breakpoint(large) {
+    padding: $global-padding*10 0;
+  }
+  .text-center {
+    width: 100%;
+  }
+  img, p, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: $global-margin*2
+  }
+  p {
+    @include breakpoint(small only) {
+      display: none;
+    }
+    @include breakpoint(medium) {
+      font-size: rem-calc(18px);
+    }
+  }
+  br {
+    @include breakpoint(small only) {
+      display: none;
+    }
+  }
+  form {
+    max-width: rem-calc(400px);
+    margin: 0 auto $global-margin*2 - rem-calc(18px) auto;
+  }
+  [type="text"] {
+    margin: 0;
+    padding: 0.75rem 1em !important;
+    height: auto;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+  }
+  .gform_wrapper div.validation_error {
+    border: none;
+  }
+  .gform_wrapper .top_label .gfield_label {
+    display: none;
+  }
+  .gform_wrapper .top_label div.ginput_container {
+    margin: 0;
+  }
+  .gform_wrapper ul.gform_fields li.gfield {
+    padding: 0;
+    margin: 0;
+  }
+  .gform_wrapper .top_label input.medium, .gform_wrapper .top_label select.medium {
+    width: 100%;
+  }
+  .gform_wrapper .gform_body {
+    display: inline-block;
+    width: calc(100% - 140px);
+  }
+  .gform_wrapper .gform_footer {
+    width: 135px;
+    vertical-align: top;
+    position: relative;
+    left: -5px;
+    display: inline-block;
+  }
+  .gform_button {
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: rem-calc(12px) rem-calc(16px) !important;
+    font-family: $header-font-family;
+  }
+  .share {
+    h6 {
+      font-family: $body-font-family;
+      font-weight: $global-weight-normal;
+      margin: $global-margin/2;
+      font-size: rem-calc(14px);
+    }
+    .stLarge {
+      width: 36px;
+      height: 36px;
+      background-image: none !important;
+      background-color: $primary-color !important;
+      color: $white;
+      font-family: "FontAwesome";
+      line-height:1;
+      font-size: rem-calc(24px);
+      border-radius: 100%;
+      &::after {
+        display: block;
+        position: relative;
+        top: rem-calc(6px);
+      }
+      &:hover {
+        opacity:1;
+        background-color: scale_color($primary-color, $lightness: -15%) !important;
+      }
+    }
+    .st_facebook_large .stLarge::after {
+      content: "\f09a";
+    }
+    .st_instagram_large .stLarge::after {
+      content: "\f16d";
+    }
+    .st_pinterest_large .stLarge::after {
+      content: "\f231";
+    }
+  }
+}
+
+/** basic page **/
+main {
+  background-color: $white;
+  padding: $global-padding*3 0;
+}
+
+/** footer **/
+footer.footer {
+  background-color: #6c544e;
+  color: #bababb;
+  padding: $global-padding*2 0;
+  .row {
+    justify-content: space-between;
+  }
+  .row.medium-unstack  > .shrink {
+    @include breakpoint(medium) {
+      flex: 0 0 auto;
+    }
+  }
+  .copyright {
+    p:last-of-type {
+      margin: 0;
+    }
+    @include breakpoint(small only) {
+      margin-bottom: $global-margin;
+    }
+  }
+  .horizontal.menu {
+    li {
+      padding-left: $global-margin/2;
+    }
+    a {
+      width: rem-calc(36px);
+      height: rem-calc(36px);
+      color: $secondary-color;
+      background-color: $primary-color;
+      border-radius: 100%;
+      font-size: rem-calc(24px);
+      line-height: 1;
+      &:hover {
+        background-color: scale_color($primary-color, $lightness: -14%);
+      }
+      i {
+        position: relative;
+        top: -5px;
+      }
+      .fa-youtube-play {
+        left: -9.5px;
+      }
+      .fa-facebook {
+        left: -6px;
+      }
+      .fa-twitter {
+        left: -8px;
+      }
+      .fa-instagram {
+        left: -8px;
+      }
+      .fa-pinterest {
+        left: -8px;
+      }
+    }
+  }
+}

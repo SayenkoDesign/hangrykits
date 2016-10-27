@@ -58,7 +58,7 @@
                         <div class="row column">
                             <h1>{% if post.get_field('header_heading') %}{{ post.get_field('header_heading') }}{% else %}{{ post.title }}{% endif %}</h1>
                             <div class="content">
-                                {{ post.get_field('header_content') }}
+                                {{ post.get_field('header_content') | wpautop}}
                             </div>
                             {% if post.get_field('header_share') %}
                                 <h6>Share the Love!</h6>

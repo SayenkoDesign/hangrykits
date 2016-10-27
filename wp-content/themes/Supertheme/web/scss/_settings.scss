@@ -116,21 +116,13 @@ $header-font-weight: $global-weight-bold;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-sizes: (
-  small: (
-    'h1': 24,
-    'h2': 20,
-    'h3': 19,
-    'h4': 18,
-    'h5': 16,
-    'h6': 14,
-  ),
   medium: (
     'h1': 40,
-    'h2': 36,
+    'h2': 46,
     'h3': 32,
     'h4': 26,
-    'h5': 16,
-    'h6': 15,
+    'h5': 20,
+    'h6': 16,
   ),
 );
 $header-color: inherit;
@@ -242,14 +234,14 @@ $breadcrumbs-item-slash: true;
 // 11. Button
 // ----------
 
-$button-padding: 0.85em 1em;
+$button-padding: 1rem 4rem;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
 $button-color: $white;
 $button-color-alt: $black;
-$button-radius: $global-radius;
+$button-radius: 0.5rem;
 $button-sizes: (
   tiny: 0.6rem,
   small: 0.75rem,

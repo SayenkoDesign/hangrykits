@@ -10,6 +10,8 @@
   }
   .row {
     max-width: rem-calc(620px);
+    position: relative;
+    z-index: 1;
   }
   .content {
     margin-bottom: $global-margin * 2;
@@ -51,5 +53,10 @@
     &::before {
       content: "\f231";
     }
+  }
+}
+.home .hero {
+  .content + h6 {
+    color: $primary-color;
   }
 }

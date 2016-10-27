@@ -1,0 +1,29 @@
+section.promotion {
+  padding: $global-padding*4 0;
+  .large-6 {
+    position: relative;
+    @include breakpoint(large) {
+      top: -1*($global-padding*4+7rem);
+    }
+  }
+  .point {
+    img {
+      margin-bottom: $global-margin/2;
+    }
+    h5, p {
+      margin-bottom: 0;
+    }
+    p {
+      line-height: 1.2;
+    }
+    margin-bottom: $global-margin*4;
+  }
+  .promotion-cta {
+    @include breakpoint(large) {
+      margin-top: -1*($global-padding*10);
+    }
+    h2 {
+      margin-bottom: $global-margin*2;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<html {{ site.language_attributes }} class="no-js">
+<head>
+    {% block meta %}
+        <meta charset="{{ site.charset }}">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1">
+        <meta name="description" content="{{ site.description }}">
+        <link rel="pingback" href="{{ site.pingback_url }}" />
+
+        {% if favicon %}
+            <link rel="icon" type="image/x-icon" href="{{ favicon.url }}" />
+        {% endif %}
+
+        {% block meta_title %}
+            <title>
+                {% if wp_title %}
+                    {{ wp_title }} - {{ site.name }}
+                {% else %}
+                    {{ site.name }}
+                {% endif %}
+            </title>
+        {% endblock %}
+    {% endblock %}
+
+    {% block stylesheets %}
+        {{ function('wp_head') }}
+    {% endblock %}
+</head>
+<body {{ body_class }}>
+
+{% block body %}
+    {% block header %}
+        {% include "layout/header.html.twig" %}
+    {% endblock %}
+
+    {% block content %}
+        <main class="content">
+            <div class="row column">
+                <article>
+                    <h1>{{ post.title }}</h1>
+                    {{ post.content }}
+                </article>
+            </div>
+        </main>
+    {% endblock %}
+
+    {% block footer %}
+        {% include "layout/footer.html.twig" %}
+    {% endblock %}
+{% endblock %}
+
+{% block scripts %}
+    {{ function('wp_footer') }}
+{% endblock %}
+</body>
+</html>

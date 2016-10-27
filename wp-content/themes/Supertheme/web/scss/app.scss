@@ -8,8 +8,19 @@
 @import "layout/footer";
 @import "layout/hero";
 
+@import "panels/promotion";
+
 .off-canvas {
   left: 0;
   z-index: auto;
   position: fixed;
+}
+.js-off-canvas-exit {
+  z-index: 6;
+}
+
+.button {
+  font-family: $header-font-family;
+  text-transform: uppercase;
+  font-weight: $global-weight-bold;
 }

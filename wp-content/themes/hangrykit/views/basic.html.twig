@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block meta %}
+    {{ parent() }}
+    <link rel="icon"
+          type="image/png"
+          href="{{ favicon.url }}" />
+{% endblock %}
+{% block content %}
+    <main>
+        <div class="row column">
+            <article>
+                <h1>{{ post.title }}</h1>
+                {{ post.content }}
+            </article>
+        </div>
+    </main>
+{% endblock %}
+{% block footer %}
+    <footer class="footer">
+        <div class="row medium-unstack align-middle">
+            <div class="columns">
+                <div class="copyright">
+                    {{ copyright }}
+                </div>
+            </div>
+            <div class="shrink columns">
+                <ul class="horizontal menu">
+                    {% if youtube %}
+                        <li><a href="{{ youtube }}" target="_blank"><i class="fa fa-fw fa-youtube-play"></i></a></li>
+                    {% endif %}
+                    {% if facebook %}
+                        <li><a href="{{ facebook }}" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>
+                    {% endif %}
+                    {% if twitter  %}
+                        <li><a href="{{ twitter }}" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+                    {% endif %}
+                    {% if instagram %}
+                        <li><a href="{{ instagram }}" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>
+                    {% endif %}
+                    {% if pinterest  %}
+                        <li><a href="{{ pinterest }}" target="_blank"><i class="fa fa-fw fa-pinterest"></i></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

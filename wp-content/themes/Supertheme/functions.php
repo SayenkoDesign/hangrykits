@@ -58,7 +58,12 @@ add_filter('wp_nav_menu_items', function ($items, $args) {
     }
     if ($args->location == 'loggedin_main_menu' || $args->location == 'loggedout_main_menu') {
         $items = '<li class="menu-toggle"><a data-toggle="offCanvas"><i class="fa fa-bars"></i></a></li>'.$items;
-        $items .= '<li class="cart"><a data-toggle="offCanvas"><i class="fa fa-shopping-cart"></i></a></li>';
+        $items .= '<li class="cart">'
+            .'<a href="'.wc_get_cart_url().'" title="'._( 'View your shopping cart' ).'" data-toggle="offCanvas">'
+            .'<img src="'.get_stylesheet_directory_uri().'/web/images-min/cart.min.png" alt="cart">'
+            .(WC()->cart->get_cart_contents_count()?'<span class="badge">'.WC()->cart->get_cart_contents_count().'</span>':'')
+            .'</a>'
+            .'</li>';
     }
 
     return $items;

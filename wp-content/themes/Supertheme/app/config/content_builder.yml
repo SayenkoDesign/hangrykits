@@ -130,3 +130,16 @@ fields:
                 label: Basic Content
                 display: block
                 sub_fields:
+                    -
+                        key: field_basic_content
+                        label: Content
+                        name: content
+                        type: wysiwyg
+                        instructions:
+                        required: 1
+                        conditional_logic: 0
+                        wrapper: { width: "", class: "", id: "" }
+                        default_value:
+                        tabs: all
+                        toolbar: basic
+                        media_upload: 0

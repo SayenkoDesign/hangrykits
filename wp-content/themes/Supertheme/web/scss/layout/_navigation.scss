@@ -24,6 +24,10 @@
         color: $white;
       }
     }
+    .fa-bars {
+      color: map-get($foundation-palette, primary);
+      font-size: 2rem;
+    }
     .home {
       a {
         font-size:0;
@@ -34,6 +38,18 @@
     }
     .home, .menu-toggle, .cart{
       display: flex;
+    }
+    .cart {
+      position: relative;
+      .badge {
+        min-width: 1.2rem;
+        height: 1.2rem;
+        position: absolute;
+        bottom: 14px;
+        right: 16px;
+        font-weight: bold;
+        padding: 0.25rem;
+      }
     }
   }
 }

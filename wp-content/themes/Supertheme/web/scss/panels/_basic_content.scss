@@ -1,0 +1,21 @@
+.basic_content {
+  padding: $global-padding*3 0;
+  p {
+    font-size: rem-calc(14px);
+  }
+
+  .drop_content {
+    p {
+      font-size: rem-calc(24px);
+      line-height: 1.2;
+    }
+    .drop-letter {
+      font-weight: bold;
+      font-size: rem-calc(60px);
+      float: left;
+      line-height: 1;
+      margin-bottom: rem-calc(-4px);
+      padding-right: rem-calc(8px);
+    }
+  }
+}

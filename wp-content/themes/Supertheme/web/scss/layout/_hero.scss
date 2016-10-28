@@ -15,6 +15,9 @@
   }
   .content {
     margin-bottom: $global-margin * 2;
+    p {
+      line-height: 1.2;
+    }
   }
 
   .content + h6 {

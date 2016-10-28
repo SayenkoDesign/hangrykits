@@ -1,0 +1,15 @@
+{% if panel.drop_caps_content and panel.drop_caps_letter %}
+    <div class="row align-center drop_content">
+        <div class="small-12 large-10 columns">
+            <p>
+                <span class="drop-letter">{{  panel.drop_caps_letter }}</span>
+                {{ panel.drop_caps_content }}
+            </p>
+        </div>
+    </div>
+{% endif %}
+<div class="row align-center">
+    <div class="small-12 large-10 columns">
+        {{ panel.content }}
+    </div>
+</div>

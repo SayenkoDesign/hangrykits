@@ -128,8 +128,29 @@ fields:
                 key: layout_basic
                 name: basic_content
                 label: Basic Content
+                instructions: "Basic content on a whate background"
                 display: block
                 sub_fields:
+                    -
+                        key: field_drop_caps_letter
+                        label: Drop Caps Letter
+                        name: drop_caps_letter
+                        type: text
+                        instructions:
+                        required: 1
+                        conditional_logic: 0
+                        wrapper: { width: "", class: "", id: "" }
+                        default_value:
+                    -
+                        key: field_drop_caps_content
+                        label: Drop Caps Content
+                        name: drop_caps_content
+                        type: textarea
+                        instructions:
+                        required: 1
+                        conditional_logic: 0
+                        wrapper: { width: "", class: "", id: "" }
+                        default_value:
                     -
                         key: field_basic_content
                         label: Content
@@ -141,5 +162,5 @@ fields:
                         wrapper: { width: "", class: "", id: "" }
                         default_value:
                         tabs: all
-                        toolbar: basic
-                        media_upload: 0
+                        toolbar: full
+                        media_upload: 1

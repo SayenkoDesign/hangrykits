@@ -106,7 +106,7 @@ fields:
     key:  "field_default_heading_background"
     label:  "Default Heading Background"
     name:  "header_background"
-    type:  "file"
+    type:  "image"
     instructions:  ""
     required:  1,
     conditional_logic:  0,

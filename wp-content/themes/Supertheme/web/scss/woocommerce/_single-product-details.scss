@@ -1,0 +1,88 @@
+.single-product-details {
+  .overview {
+    padding: $global-padding*2 0;
+    margin-bottom: $global-margin;
+    > div:first-of-type {
+      @include breakpoint(large) {
+        border-right: 1px solid $dark-gray;
+      }
+    }
+    > div:last-of-type {
+      @include breakpoint(large) {
+        border-left: 1px solid $dark-gray;
+      }
+    }
+    h3 {
+      font-size: rem-calc(22px);
+      color: $body-font-color;
+      margin: 0;
+      line-height:1;
+    }
+    h2 {
+      font-size: rem-calc(30px);
+      line-height:1;
+    }
+    .weight {
+      font-size: rem-calc(22px);
+      font-weight: bold;
+    }
+    i.fa {
+      font-size: rem-calc(24px);
+    }
+    .reviews {
+      font-size: rem-calc(15px);
+      margin-bottom: $global-margin;
+      @include breakpoint(large) {
+        margin: 0;
+      }
+    }
+  }
+  .short-description {
+    font-size: rem-calc(18px);
+    margin-bottom: $global-margin*4;
+  }
+  .contents {
+    padding-bottom: $global-margin*4;
+    .title {
+      position: relative;
+      text-align: center;
+      margin-bottom: $global-margin*4;
+      .linethrough {
+        position: absolute;
+        z-index: 1;
+        top: calc(50% - 2px);
+        left: map-get($grid-column-gutter, medium)/2;
+        right: map-get($grid-column-gutter, medium)/2;
+        height: 2px;
+        background-color: $body-font-color;
+      }
+      h3 {
+        font-family: $body-font-family;
+        font-size: rem-calc(22px);
+        line-height:1;
+        text-transform: uppercase;
+        font-weight: normal;
+        position: relative;
+        z-index: 2;
+        background-color: $body-background;
+        display: inline-block;
+        padding: 0 $global-padding;
+        margin: 0;
+      }
+    }
+    .list {
+      a {
+        color: $body-font-color;
+        &:hover, .fa {
+          color: map-get($foundation-palette, primary)
+        }
+      }
+    }
+    ul.no-bullet {
+      margin-bottom: $global-margin;
+      @include breakpoint(medium) {
+        margin-bottom: $global-margin*4;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block hero %}
+    <section
+            class="hero text-center"
+            style="background-image: url('{% if post.get_field('header_background') %}{{ TimberImage(post.get_field('header_background')).src }}{% else %}{{ hero_background.url }}{% endif %}')"
+    >
+        <div class="row column">
+            <div class="content">
+                <h1>So much snacks!!</h1>
+                <p>Hangry Kits will save you!</p>
+            </div>
+
+            <h6>Share the Love!</h6>
+            <span class='st_facebook_large' displayText='Facebook'></span>
+            <span class='st_twitter_large' displayText='Tweet'></span>
+            <span class='st_pinterest_large' displayText='Pinterest'></span>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content %}
+    <section class="products">
+        <div class="row small-up-1 medium-up-3 product-teasers">
+            {% for post in products %}
+                {% set product = function("wc_get_product", post.ID)%}
+                {% include ["teasers/product.html.twig"] with {product: product, post: post} only %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock  %}

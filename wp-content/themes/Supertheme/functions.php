@@ -11,6 +11,9 @@ if(function_exists('acf_add_local_field_group')){
     // content builder
     $fields = $parser->parse(file_get_contents(__DIR__.'/app/config/content_builder.yml'));
     acf_add_local_field_group($fields);
+    // product builder
+    $fields = $parser->parse(file_get_contents(__DIR__.'/app/config/product_builder.yml'));
+    acf_add_local_field_group($fields);
 }
 
 // global twig vars
@@ -45,7 +48,7 @@ add_filter('timber/context', function($data){
     // copyright
     $data['copyright'] = get_field('copyright', 'option');
     // hero
-    $data['hero_background'] = get_field('heading_default_background');
+    $data['hero_background'] = get_field('header_background', 'option');
     // woocommerce
     $data['shop_url'] = get_permalink(wc_get_page_id('shop'));
     return $data;
@@ -74,8 +77,7 @@ add_filter('widget_title', function($title) {
     return '<h5>'.$title.'</h5>';
 });
 
-add_filter('timber_post_get_meta_field', function($value, $ID, $field_name, $post){
-    if($field_name == "content_builder") {
-    }
-    return $value;
-}, 10, 4);
+// add stylesheet to admin pages
+add_action('admin_enqueue_scripts', function () {
+    wp_enqueue_style('admin-styles', get_template_directory_uri().'/web/stylesheets/admin.css');
+});

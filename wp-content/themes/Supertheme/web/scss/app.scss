@@ -11,6 +11,9 @@
 @import "panels/promotion";
 @import "panels/basic_content";
 
+@import "woocommerce/single-product-details";
+@import "woocommerce/product-teasers";
+
 .off-canvas {
   left: 0;
   z-index: auto;
@@ -24,4 +27,34 @@
   font-family: $header-font-family;
   text-transform: uppercase;
   font-weight: $global-weight-bold;
+}
+
+
+i.fa.fa-star, i.fa.fa-star-half-o {
+  color: map-get($foundation-palette, primary);
+}
+.woocommerce a.add-cart, .woocommerce a.add-wishlist {
+  font-size: rem-calc(13px);
+  margin-bottom: $global-margin;
+  @include breakpoint(medium) {
+    width: 100%;
+    margin: 0;
+  }
+}
+.woocommerce a.add-cart {
+  background-color: map-get($foundation-palette, primary);
+  color: $white;
+  border: rem-calc(2px) solid map-get($foundation-palette, primary);
+  &:hover {
+    background-color: scale_color(map-get($foundation-palette, primary), $lightness: -14%);
+    border-color: scale_color(map-get($foundation-palette, primary), $lightness: -14%);
+    color: $white;
+  }
+}
+.woocommerce a.add-wishlist {
+  background-color: $body-background;
+  border: rem-calc(2px) solid $body-font-color;
+  &:hover {
+    background-color: scale_color($body-background, $lightness: -14%);
+  }
 }

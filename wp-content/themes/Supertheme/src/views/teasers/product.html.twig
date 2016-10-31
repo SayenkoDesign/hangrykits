@@ -1,0 +1,29 @@
+<div class="column text-center">
+    <img src="{{post.thumbnail.src}}" class="my-thumb-class" alt="Image for {{post.title}}" />
+    <h4>{{ post.title }}</h4>
+    <div class="weight-container">
+        <div class="bar"></div>
+        <div class="weight">{{ product.get_weight() }} lbs.</div>
+    </div>
+    <div class="stars">
+        {% for i in range(1,5) %}
+            {% if product.get_average_rating() >= i %}
+                <i class="fa fa-star"></i>
+            {% elseif product.get_average_rating() >= i - 0.5 %}
+                <i class="fa fa-star-half-o"></i>
+            {% else %}
+                <i class="fa fa-star-o"></i>
+            {% endif %}
+        {% endfor %}
+        <span class="reviews">
+            ({{ product.get_review_count() }})
+        </span>
+    </div>
+    <div>
+        <a href="{{ function('do_shortcode', '[add_to_cart_url id="'~product.id~'"]') }}" class="expand primary button add-cart">Add | ${{ product.get_price() }}</a>
+    </div>
+    <div class="excerpt">
+        {{ product.post.post_excerpt|striptags|slice(0,150) }}...
+    </div>
+    <h5><a href="{{ post.link }}">Learn More</a></h5>
+</div>

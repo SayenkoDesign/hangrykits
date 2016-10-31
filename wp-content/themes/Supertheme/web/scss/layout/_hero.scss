@@ -8,19 +8,17 @@
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: $global-margin;
   }
-  .row {
+  .content {
     max-width: rem-calc(620px);
     position: relative;
     z-index: 1;
-  }
-  .content {
-    margin-bottom: $global-margin * 2;
+    margin: 0 auto $global-margin * 2;
     p {
       line-height: 1.2;
     }
   }
 
-  .content + h6 {
+  .content + .share h6 {
     margin-bottom: 0;
   }
   .stLarge {
@@ -57,9 +55,25 @@
       content: "\f231";
     }
   }
+
+  .back {
+    position: relative;
+    font-size: rem-calc(16px);
+    text-transform: uppercase;
+    top: rem-calc(-4px);
+    @include breakpoint(small only) {
+      display: none;
+    }
+    i.fa {
+      position: relative;
+      top: rem-calc(20px - 10px);
+      font-size: rem-calc(40px);
+      padding-right: rem-calc(4px);
+    }
+  }
 }
 .home .hero {
-  .content + h6 {
+  .content + .share h6 {
     color: $primary-color;
   }
 }

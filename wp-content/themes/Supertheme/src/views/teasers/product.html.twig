@@ -1,6 +1,6 @@
 <div class="column text-center">
-    <img src="{{post.thumbnail.src}}" class="my-thumb-class" alt="Image for {{post.title}}" />
-    <h4>{{ post.title }}</h4>
+    {{ function("get_the_post_thumbnail", post.ID) }}
+    <h4>{{ post.post_title }}</h4>
     <div class="weight-container">
         <div class="bar"></div>
         <div class="weight">{{ product.get_weight() }} lbs.</div>

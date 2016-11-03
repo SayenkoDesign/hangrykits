@@ -7,12 +7,16 @@
 @import "layout/navigation";
 @import "layout/footer";
 @import "layout/hero";
+@import "layout/author-bar";
+@import "layout/sidebar";
 
 @import "panels/promotion";
 @import "panels/basic_content";
 
 @import "woocommerce/single-product-details";
 @import "woocommerce/product-teasers";
+
+@import "single";
 
 .off-canvas {
   left: 0;
@@ -29,6 +33,28 @@
   font-weight: $global-weight-bold;
 }
 
+.scroll-top {
+  position: fixed;
+  z-index: 1;
+  background-color: map-get($foundation-palette, primary);
+  color: $white;
+  display: block;
+  text-align: center;
+  font-size: rem-calc(32px);
+  width: rem-calc(32px);
+  bottom: rem-calc(32px);
+  right: rem-calc(32px);
+  @include breakpoint(medium) {
+    font-size: rem-calc(64px);
+    width: rem-calc(64px);
+    bottom: rem-calc(64px);
+    right: rem-calc(64px);
+  }
+  &:hover, &:active, &:focus {
+    color: $white;
+    background-color: scale_color(map-get($foundation-palette, primary), $lightness: -14%);
+  }
+}
 
 i.fa.fa-star, i.fa.fa-star-half-o {
   color: map-get($foundation-palette, primary);

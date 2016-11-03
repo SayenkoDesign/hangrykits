@@ -1,0 +1,11 @@
+<div class="related product-teasers">
+    <div class="row column text-center">
+        <h2>Most Popular</h2>
+    </div>
+    <div class="row small-up-1 medium-up-3">
+        {% for post in panel.products %}
+            {% set product = function("wc_get_product", post.ID)%}
+            {% include ["teasers/product.html.twig"] with {product: product, post: post} only %}
+        {% endfor %}
+    </div>
+</div>

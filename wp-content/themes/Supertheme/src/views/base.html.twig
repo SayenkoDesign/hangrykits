@@ -7,6 +7,7 @@
         <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1">
         <meta name="description" content="{{ site.description }}">
         <link rel="pingback" href="{{ site.pingback_url }}" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
         {% if favicon %}
             <link rel="icon" type="image/x-icon" href="{{ favicon.url }}" />
@@ -115,6 +116,10 @@
                             </div>
                         </div>
                     </footer>
+                {% endblock %}
+
+                {% block scroll %}
+                    <a class="scroll-top"><i class="fa fa-angle-double-up"></i></a>
                 {% endblock %}
             </div>
         </div>

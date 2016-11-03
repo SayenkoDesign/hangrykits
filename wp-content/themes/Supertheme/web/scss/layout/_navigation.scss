@@ -52,6 +52,10 @@
       }
     }
   }
+  .is-dropdown-submenu {
+    background-color: rgba($black, 0.4);
+    border: none;
+  }
 }
 
 .off-canvas-wrapper {
@@ -66,6 +70,12 @@
     color: $light-gray;
     &:hover {
       color: $white;
+    }
+  }
+  .sub-menu {
+    list-style-type: none;
+    a {
+      padding: 0.7rem 1rem
     }
   }
 }

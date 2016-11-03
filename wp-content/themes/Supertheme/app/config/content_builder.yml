@@ -2,8 +2,6 @@ key: group_content_builder
 title: Content Builder
 location:
   -
-    - { param: "post_type", operator: "==", value: "post" }
-  -
     - { param: "post_type", operator: "==", value: "page" }
 menu_order: 0
 position: "acf_after_title"
@@ -164,3 +162,23 @@ fields:
                         tabs: all
                         toolbar: full
                         media_upload: 1
+            -
+                key: layout_popular
+                name: popular
+                label: Popular Products
+                display: block
+                sub_fields:
+                    -
+                        key: 'field_5818e054f1b07'
+                        label: 'Products'
+                        name: 'products'
+                        type: 'post_object'
+                        instructions: ''
+                        required: 1
+                        conditional_logic: 0
+                        wrapper: { width: '', class: '', id: '' }
+                        post_type: ['product']
+                        allow_null: 0
+                        multiple: 1
+                        return_format: 'object'
+                        ui: 1

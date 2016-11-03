@@ -2,6 +2,11 @@
 require_once __DIR__.'/app/bootstrap.php';
 require_once __DIR__.'/src/functions.php';
 
+// add woocommerce support
+add_action('after_setup_theme', function (){
+    add_theme_support('woocommerce');
+});
+
 // register some acf fields
 if(function_exists('acf_add_local_field_group')){
     $parser = new \Symfony\Component\Yaml\Parser();
@@ -36,6 +41,7 @@ add_filter('timber/context', function($data){
         "echo" => false,
     ]);
     // widgets
+    $data['sidebar'] = \Timber::get_widgets('sidebar');
     $data['footer_1'] = \Timber::get_widgets('footer_1');
     $data['footer_2'] = \Timber::get_widgets('footer_2');
     $data['footer_3'] = \Timber::get_widgets('footer_3');

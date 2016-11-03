@@ -1,0 +1,13 @@
+.sidebar {
+  .widget > ul {
+    margin: 0 0 $global-margin*2 0;
+  }
+  li {
+    list-style-type: none;
+  }
+  label {
+    h1, h2, h3, h4, h5, h6 {
+      color: $body-font-color;
+    }
+  }
+}

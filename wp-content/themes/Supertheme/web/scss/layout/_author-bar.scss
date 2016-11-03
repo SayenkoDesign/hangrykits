@@ -1,0 +1,38 @@
+.author-bar {
+  text-align: center;
+  .day {
+    font-family: $header-font-family;
+    font-size: rem-calc(40px);
+    line-height: 1;
+    display: inline-block;
+    color: #404449;
+    color: $body-font-color;
+    &::after {
+      margin: $global-margin auto 0 auto;
+      content: " ";
+      display: block;
+      width: rem-calc(20px);
+      height: rem-calc(4px);
+      background-color: map-get($foundation-palette, primary);
+    }
+  }
+  .year {
+    font-size: rem-calc(14px);
+    margin-top: 4px;
+    margin-bottom: 0.5rem;
+  }
+  .author {
+    margin-top: $global-margin*2;
+    text-align: center;
+    font-size: rem-calc(14px);
+    color: rgba($body-font-color, 0.6);
+    img {
+      border-radius: 100%;
+      margin-bottom: 0.5rem;
+    }
+    .name {
+      color: $body-font-color;
+      font-weight: bold;
+    }
+  }
+}

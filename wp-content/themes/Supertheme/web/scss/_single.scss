@@ -1,0 +1,33 @@
+section.single {
+  position: relative;
+  .gradient {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: -moz-linear-gradient(left, $body-background 50%, #fefefe 50%);
+    background: -webkit-gradient(linear, left top, right top, from($body-background), color-stop(0.5, $body-background), color-stop(0.5, #fefefe));
+  }
+  .gradient ~ .row {
+    position: relative;
+    > .large-9.columns {
+      background-color: $body-background;
+      padding: $global-padding*2 0;
+    }
+    > .sidebar {
+      background-color: $white;
+      padding: $global-padding*2;
+    }
+  }
+  .attachment-post-thumbnail {
+    width: 100%;
+    margin-bottom: $global-margin;
+  }
+  .excerpt {
+    margin-bottom: $global-margin*2;
+  }
+  .read-more {
+    margin-top: rem-calc($global-margin);
+    display: block;
+  }
+}

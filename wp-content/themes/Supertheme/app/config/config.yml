@@ -28,6 +28,7 @@ parameters:
     loggedin_side_menu: "Side Menu for logged in users"
     loggedout_side_menu: "Side Menu for guest (users who are not logged in)"
   wordpress.sidebars:
+    - { id: "sidebar", name: "Sidebar", description: "Sidebar" }
     - { id: "footer_1", name: "Footer 1", description: "First footer column" }
     - { id: "footer_2", name: "Footer 2", description: "Second footer column" }
     - { id: "footer_3", name: "Footer 3", description: "Third footer column" }

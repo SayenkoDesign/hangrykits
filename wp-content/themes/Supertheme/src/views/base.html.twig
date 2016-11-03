@@ -57,7 +57,11 @@
                     >
                         <div class="row column">
                             <div class="content">
-                                <h1>{% if post.get_field('header_heading') %}{{ post.get_field('header_heading') }}{% else %}{{ post.title }}{% endif %}</h1>
+                                {% if title is defined and title %}
+                                    <h1>{{ title }}</h1>
+                                {% else %}
+                                    <h1>{% if post.get_field('header_heading') %}{{ post.get_field('header_heading') }}{% else %}{{ post.title }}{% endif %}</h1>
+                                {% endif %}
                                 {{ post.get_field('header_content') | wpautop}}
                             </div>
                             {% if post.get_field('header_share') %}

@@ -46,31 +46,17 @@
     li {
       margin-left: $global-margin;
     }
-    a {
-      background-color: map-get($foundation-palette, primary);
-      border-radius: 100%;
-      width: rem-calc(36px);
-      height: rem-calc(36px);
-      &:hover {
-        background-color: scale-color($anchor-color, $lightness: -14%);
-      }
+    .icon-youtube:hover {
+      @extend .icon-youtube-hover;
     }
-    .fa {
-      color: map-get($foundation-palette, secondary);
-      font-size: rem-calc(20px);
-      line-height: 1;
-      position: relative;
-      top: -3px;
-      left: -6px;
+    .icon-facebook:hover {
+      @extend .icon-facebook-hover;
     }
-    .fa-facebook {
-      left: -4px;
+    .icon-instagram:hover {
+      @extend .icon-instagram-hover;
     }
-    .fa-play {
-      left: -4px;
-    }
-    .fa-pinterest-p {
-      left: -4px;
+    .icon-pinterest:hover {
+      @extend .icon-pinterest-hover;
     }
   }
   .widget_sp_image img {

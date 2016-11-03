@@ -21,38 +21,39 @@
   .content + .share h6 {
     margin-bottom: 0;
   }
-  .stLarge {
-    background-image: none !important;
-    background-color: map-get($foundation-palette, primary);
-    border-radius: 100%;
-    width: rem-calc(36px);
-    height: rem-calc(36px);
+  .share {
+    position: relative;
+    z-index: 1;
+    color: $white;
+  }
+  .st_facebook_custom {
+    @extend .icon-facebook;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
     &:hover {
-      background-color: scale-color($anchor-color, $lightness: -14%);
-      opacity: 1 !important;
-    }
-    &::before {
-      position: relative;
-      font-family: "FontAwesome";
-      color: map-get($foundation-palette, secondary);
-      font-size: rem-calc(20px);
-      top: 8px;
-      left: 0;
+      cursor: pointer;
+      @extend .icon-facebook-hover;
     }
   }
-  .st_facebook_large .stLarge {
-    &::before {
-      content: "\f09a";
+  .st_instagram_custom {
+    @extend .icon-instagram;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    &:hover {
+      cursor: pointer;
+      @extend .icon-instagram-hover;
     }
   }
-  .st_twitter_large .stLarge {
-    &::before {
-      content: "\f099";
-    }
-  }
-  .st_pinterest_large .stLarge {
-    &::before {
-      content: "\f231";
+  .st_pinterest_custom {
+    @extend .icon-pinterest;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    &:hover {
+      cursor: pointer;
+      @extend .icon-pinterest-hover;
     }
   }
 
@@ -70,10 +71,5 @@
       font-size: rem-calc(40px);
       padding-right: rem-calc(4px);
     }
-  }
-}
-.home .hero {
-  .content + .share h6 {
-    color: $primary-color;
   }
 }

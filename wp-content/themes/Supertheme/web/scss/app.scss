@@ -3,6 +3,7 @@
 @import "foundation";
 @include foundation-everything(true);
 @import "supertheme";
+@import "sprite-map";
 
 @import "layout/navigation";
 @import "layout/footer";

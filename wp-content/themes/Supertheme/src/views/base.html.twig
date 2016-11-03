@@ -66,10 +66,12 @@
                                 {{ post.get_field('header_content') | wpautop}}
                             </div>
                             {% if post.get_field('header_share') %}
-                                <h6>Share the Love!</h6>
-                                <span class='st_facebook_large' displayText='Facebook'></span>
-                                <span class='st_twitter_large' displayText='Tweet'></span>
-                                <span class='st_pinterest_large' displayText='Pinterest'></span>
+                                <div class="share">
+                                    <h6>Share the Love!</h6>
+                                    <span class="st_facebook_custom" displaytext="Facebook" st_processed="yes"></span>
+                                    <span class='st_instagram_custom' displayText='Tweet'></span>
+                                    <span class='st_pinterest_custom' displayText='Pinterest'></span>
+                                </div>
                             {% endif %}
                         </div>
                     </section>
@@ -105,10 +107,10 @@
                         <div class="row bottom align-middle">
                             <div class="shrink column medium-order-2">
                                 <ul class="horizontal menu follow">
-                                    {% if youtube %}<li><a href="{{ youtube }}" target="_blank"><i class="fa fa-play"></i></a></li>{% endif %}
-                                    {% if facebook %}<li><a href="{{ facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>{% endif %}
-                                    {% if instagram %}<li><a href="{{ instagram }}" target="_blank"><i class="fa fa-instagram"></i></a></li>{% endif %}
-                                    {% if pinterest %}<li><a href="{{ pinterest }}" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>{% endif %}
+                                    {% if youtube %}<li><a href="{{ youtube }}" target="_blank" class="icon-youtube"></a></li>{% endif %}
+                                    {% if facebook %}<li><a href="{{ facebook}}" target="_blank" class="icon-facebook"></a></li>{% endif %}
+                                    {% if instagram %}<li><a href="{{ instagram }}" target="_blank" class="icon-instagram"></a></li>{% endif %}
+                                    {% if pinterest %}<li><a href="{{ pinterest }}" target="_blank" class="icon-pinterest"></a></li>{% endif %}
                                 </ul>
                             </div>
                             <div class="expand column medium-order-1">

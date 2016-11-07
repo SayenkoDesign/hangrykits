@@ -107,6 +107,7 @@
     position: absolute;
     right: 0;
     top: 0;
+    width: auto;
   }
   .gform_validation_error.gform_wrapper .gform_footer {
     top: rem-calc(105px);
@@ -119,6 +120,13 @@
     font-family: $header-font-family;
     padding: 0.85em !important;
     border-radius: 0 rem-calc(16px) rem-calc(16px) 0;
+    background-color: map-get($foundation-palette, primary);
+    border: 1px solid map-get($foundation-palette, primary);
+    color: $white;
+    &:hover {
+      background-color:scale-color(map-get($foundation-palette, primary), $lightness: -14%);
+      border: 1px solid scale-color(map-get($foundation-palette, primary), $lightness: -14%);
+    }
   }
   .gform_wrapper input:not([type="radio"]):not([type="checkbox"]):not([type="image"]):not([type="file"]) {
     min-height: 0 !important;

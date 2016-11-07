@@ -19,7 +19,7 @@
   }
 
   .content + .share h6 {
-    margin-bottom: 0;
+    margin-bottom: $global-margin/4;
   }
   .share {
     position: relative;
@@ -58,18 +58,16 @@
   }
 
   .back {
-    position: relative;
     font-size: rem-calc(16px);
     text-transform: uppercase;
-    top: rem-calc(-4px);
+    line-height: 30px;
     @include breakpoint(small only) {
       display: none;
     }
-    i.fa {
-      position: relative;
-      top: rem-calc(20px - 10px);
-      font-size: rem-calc(40px);
-      padding-right: rem-calc(4px);
+    i.icon-back {
+      display: block;
+      float: left;
+      margin-right: 8px;
     }
   }
 }

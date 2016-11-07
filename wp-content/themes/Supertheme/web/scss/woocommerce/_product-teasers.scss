@@ -14,6 +14,7 @@
   h4 {
     font-size: rem-calc(24px);
     margin-bottom: $global-margin;
+    color: map-get($foundation-palette, tertiary);
   }
   i.fa {
     font-size: rem-calc(22px);
@@ -51,5 +52,29 @@
     width: auto !important;
     margin-bottom: $global-margin !important;
     padding: rem-calc(12px) rem-calc(48px);
+  }
+}
+.archive {
+  .hero {
+    background: none !important;;
+  }
+  .product-teasers {
+    background: none;
+    h4 {
+      color: $white;
+    }
+    .excerpt {
+      color: $white;
+    }
+    .stars {
+      color: $white;
+    }
+    .bar {
+      display: none;
+    }
+    .weight {
+      background: none;
+      color: $white;
+    }
   }
 }

@@ -57,6 +57,7 @@ add_filter('timber/context', function($data){
     $data['hero_background'] = get_field('header_background', 'option');
     // woocommerce
     $data['shop_url'] = get_permalink(wc_get_page_id('shop'));
+    $data['shop_background'] = get_field('Shop_background', 'option');
     return $data;
 });
 
@@ -68,7 +69,7 @@ add_filter('wp_nav_menu_items', function ($items, $args) {
     if ($args->location == 'loggedin_main_menu' || $args->location == 'loggedout_main_menu') {
         $items = '<li class="menu-toggle"><a data-toggle="offCanvas"><i class="fa fa-bars"></i></a></li>'.$items;
         $items .= '<li class="cart">'
-            .'<a href="'.wc_get_cart_url().'" title="'._( 'View your shopping cart' ).'" data-toggle="offCanvas">'
+            .'<a href="'.wc_get_cart_url().'" title="'._( 'View your shopping cart' ).'">'
             .'<img src="'.get_stylesheet_directory_uri().'/web/images-min/cart.min.png" alt="cart">'
             .(WC()->cart->get_cart_contents_count()?'<span class="badge">'.WC()->cart->get_cart_contents_count().'</span>':'')
             .'</a>'
@@ -86,4 +87,10 @@ add_filter('widget_title', function($title) {
 // add stylesheet to admin pages
 add_action('admin_enqueue_scripts', function () {
     wp_enqueue_style('admin-styles', get_template_directory_uri().'/web/stylesheets/admin.css');
+});
+
+add_filter('woocommerce_add_to_cart_redirect', function ( $url ) {
+    $url = WC()->cart->get_cart_url();
+    // $url = wc_get_checkout_url(); // since WC 2.5.0
+    return $url;
 });

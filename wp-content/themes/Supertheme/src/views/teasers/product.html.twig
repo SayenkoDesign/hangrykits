@@ -25,5 +25,5 @@
     <div class="excerpt">
         {{ product.post.post_excerpt|striptags|slice(0,150) }}...
     </div>
-    <h5><a href="{{ post.link }}">Learn More</a></h5>
+    <h5><a href="{{ function("get_post_permalink", post.ID) }}">Learn More</a></h5>
 </div>

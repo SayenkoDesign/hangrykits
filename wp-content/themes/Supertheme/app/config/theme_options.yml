@@ -34,26 +34,7 @@ fields:
     instructions:  ""
     required:  1
     conditional_logic:  0
-    wrapper:  {width:  "25", class:  "", id:  "" }
-    return_format:  "array"
-    preview_size:  "thumbnail"
-    library:  "all"
-    min_width:  ""
-    min_height:  ""
-    min_size:  ""
-    max_width:  ""
-    max_height:  ""
-    max_size:  ""
-    mime_types:  ""
-  -
-    key:  "field_57d9c7d4d5986"
-    label:  "Alt Logo"
-    name:  "alt_logo"
-    type:  "image"
-    instructions:  ""
-    required:  0
-    conditional_logic:  0
-    wrapper:  { width:  "25", class:  "", id:  "" }
+    wrapper:  {width:  33, class:  "", id:  "" }
     return_format:  "array"
     preview_size:  "thumbnail"
     library:  "all"
@@ -72,7 +53,7 @@ fields:
     instructions:  ""
     required:  1
     conditional_logic:  0
-    wrapper:  { width:  "25", class:  "", id:  "" }
+    wrapper:  { width:  33, class:  "", id:  "" }
     return_format:  "array"
     preview_size:  "thumbnail"
     library:  "all"
@@ -91,7 +72,7 @@ fields:
     instructions:  ""
     required:  0
     conditional_logic:  0
-    wrapper:  { width:  "25", class:  "", id:  "" }
+    wrapper:  { width:  34, class:  "", id:  "" }
     return_format:  "array"
     preview_size:  "thumbnail"
     library:  "all"
@@ -110,7 +91,23 @@ fields:
     instructions:  ""
     required:  1,
     conditional_logic:  0,
-    wrapper:  { width:  "", class:  "", id:  "" }
+    wrapper:  { width:  50, class:  "", id:  "" }
+    default_value:  ""
+    placeholder:  ""
+    prepend:  ""
+    append:  ""
+    maxlength:  ""
+    readonly:  0,
+    disabled:  0
+  -
+    key:  "field_shop_background"
+    label:  "Shop Background"
+    name:  "Shop_background"
+    type:  "image"
+    instructions:  ""
+    required:  1,
+    conditional_logic:  0,
+    wrapper:  { width:  50, class:  "", id:  "" }
     default_value:  ""
     placeholder:  ""
     prepend:  ""

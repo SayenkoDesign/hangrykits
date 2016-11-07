@@ -57,22 +57,26 @@
                             style="background-image: url('{% if post.get_field('header_background') %}{{ TimberImage(post.get_field('header_background')).src }}{% else %}{{ hero_background.url }}{% endif %}')"
                     >
                         <div class="row column">
-                            <div class="content">
-                                {% if title is defined and title %}
-                                    <h1>{{ title }}</h1>
-                                {% else %}
-                                    <h1>{% if post.get_field('header_heading') %}{{ post.get_field('header_heading') }}{% else %}{{ post.title }}{% endif %}</h1>
-                                {% endif %}
-                                {{ post.get_field('header_content') | wpautop}}
-                            </div>
-                            {% if post.get_field('header_share') %}
-                                <div class="share">
-                                    <h6>Share the Love!</h6>
-                                    <span class="st_facebook_custom" displaytext="Facebook" st_processed="yes"></span>
-                                    <span class='st_instagram_custom' displayText='Tweet'></span>
-                                    <span class='st_pinterest_custom' displayText='Pinterest'></span>
+                            {% block hero_content %}
+                                <div class="content">
+                                    {% if title is defined and title %}
+                                        <h1>{{ title }}</h1>
+                                    {% else %}
+                                        <h1>{% if post.get_field('header_heading') %}{{ post.get_field('header_heading') }}{% else %}{{ post.title }}{% endif %}</h1>
+                                    {% endif %}
+                                    {{ post.get_field('header_content') | wpautop}}
                                 </div>
-                            {% endif %}
+                            {% endblock %}
+                            {% block hero_share %}
+                                {% if post.get_field('header_share') or hero_share is defined and hero_share %}
+                                    <div class="share">
+                                        <h6>Share the Love!</h6>
+                                        <span class="st_facebook_custom" displaytext="Facebook" st_processed="yes"></span>
+                                        <span class='st_instagram_custom' displayText='Tweet'></span>
+                                        <span class='st_pinterest_custom' displayText='Pinterest'></span>
+                                    </div>
+                                {% endif %}
+                            {% endblock %}
                         </div>
                     </section>
                 {% endblock %}

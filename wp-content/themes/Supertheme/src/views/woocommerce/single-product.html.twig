@@ -8,17 +8,16 @@
         <div class="content row column">
             <h1>{% if post.get_field('header_heading') %}{{ post.get_field('header_heading') }}{% else %}{{ post.title }}{% endif %}</h1>
             <img src="{{post.thumbnail.src}}" class="my-thumb-class" alt="Image for {{post.title}}" />
-
         </div>
         <div class="share row align-bottom">
             <div class="small-12 medium-4 columns medium-text-left">
-                <a href="{{ shop_url }}" class="back"><i class="fa fa-th"></i> Back to Shop</a>
+                <a href="{{ shop_url }}" class="back"><i class="icon-back"></i> Back to Shop</a>
             </div>
             <div class="small-12 medium-4 columns">
                 <h6>Share the Love!</h6>
-                <span class='st_facebook_large' displayText='Facebook'></span>
-                <span class='st_twitter_large' displayText='Tweet'></span>
-                <span class='st_pinterest_large' displayText='Pinterest'></span>
+                <span class='st_facebook_custom' displayText='Facebook'></span>
+                <span class='st_instagram_custom' displayText='Tweet'></span>
+                <span class='st_pinterest_custom' displayText='Pinterest'></span>
             </div>
             <div class="small-12 medium-4 columns"></div>
         </div>
@@ -149,5 +148,45 @@
 
         <meta itemprop="url" content="{{ post.link }}" />
     </article>
+    <div class="comments">
+        <div class="row column review">
+            <div class="bar"></div>
+            <div class="button-wrapper">
+                <a class="primary button">Write a review</a>
+            </div>
+            <div class="review-form">
+                {{ review }}
+            </div>
+        </div>
+        {% for comment in post.comments %}
+            <div class="row comment">
+                <div class="small-12 medium-4 large-3 columns">
+                    <div class="stars">
+                        {% for i in range(1,5) %}
+                            {% if comment.rating >= i %}
+                                <i class="fa fa-star"></i>
+                            {% elseif comment.rating >= i - 0.5 %}
+                                <i class="fa fa-star-half-o"></i>
+                            {% else %}
+                                <i class="fa fa-star-o"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <h6>{{ comment.author.name }}</h6>
+                    {% set difference = date(comment.date|date('Y/m/d')).diff(date('now'|date('Y/m/d'))) %}
+                    <span class="difference">
+                        {% if difference.d == 0 %}
+                            today
+                        {% else %}
+                            {{ difference.d }} days ago
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="small-12 medium-8 large-9 columns">
+                    <p>{{comment.content}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
     {% do action('woocommerce_after_single_product') %}
 {% endblock  %}

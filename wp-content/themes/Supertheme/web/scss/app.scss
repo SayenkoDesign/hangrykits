@@ -10,6 +10,7 @@
 @import "layout/hero";
 @import "layout/author-bar";
 @import "layout/sidebar";
+@import "layout/comments";
 
 @import "panels/promotion";
 @import "panels/basic_content";
@@ -83,5 +84,33 @@ i.fa.fa-star, i.fa.fa-star-half-o {
   border: rem-calc(2px) solid $body-font-color;
   &:hover {
     background-color: scale_color($body-background, $lightness: -14%);
+  }
+}
+
+// generic woo commerce
+.woocommerce-page .off-canvas-content, .woocommerce-page .off-canvas-content {
+  background-color: $white;
+  .single-product-details {
+    background-color: $body-background;
+  }
+  .related {
+    background-color: $white;
+  }
+}
+
+table tbody tr:nth-child(2n) {
+  background-color: $white;
+}
+
+#coupon_code {
+  height: auto;
+  padding: rem-calc(9px);
+}
+
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+  color: $white;
+  background-color: map-get($foundation-palette, primary);
+  &:hover {
+    background-color: scale_color(map-get($foundation-palette, primary), $lightness: -14%);
   }
 }

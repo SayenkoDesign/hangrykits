@@ -1,0 +1,62 @@
+key: "product_header"
+title: "Header"
+location:
+  -
+    - { param: "post_type", operator: "==", value: "product" }
+menu_order: 0
+position: "normal"
+style: "default"
+label_placement: "top"
+instruction_placement: label
+hide_on_screen: ""
+fields:
+  -
+    key:  "field_tagline"
+    label:  "Tagline"
+    name:  "header_tagline"
+    type:  "text"
+    instructions:  "Defaults to product title"
+    required:  0,
+    conditional_logic:  0,
+    wrapper:  { width:  "", class:  "", id:  "" }
+    default_value:  ""
+    placeholder:  ""
+    prepend:  ""
+    append:  ""
+    maxlength:  ""
+    readonly:  0,
+    disabled:  0
+  -
+    key:  "field_heading_product"
+    label:  "Heading Product Image"
+    name:  "header_product"
+    type:  "file"
+    return_format: "array"
+    instructions:  "Defaults to product image."
+    required:  0,
+    conditional_logic:  0,
+    wrapper:  { width:  "50", class:  "", id:  "" }
+    default_value:  ""
+    placeholder:  ""
+    prepend:  ""
+    append:  ""
+    maxlength:  ""
+    readonly:  0,
+    disabled:  0
+  -
+    key:  "field_heading_background"
+    label:  "Background"
+    name:  "header_background"
+    type:  "file"
+    return_format: "array"
+    instructions:  "Defaults to header background set in theme options"
+    required:  0,
+    conditional_logic:  0,
+    wrapper:  { width:  "50", class:  "", id:  "" }
+    default_value:  ""
+    placeholder:  ""
+    prepend:  ""
+    append:  ""
+    maxlength:  ""
+    readonly:  0,
+    disabled:  0

@@ -19,6 +19,9 @@ if(function_exists('acf_add_local_field_group')){
     // product builder
     $fields = $parser->parse(file_get_contents(__DIR__.'/app/config/product_builder.yml'));
     acf_add_local_field_group($fields);
+    // product header
+    $fields = $parser->parse(file_get_contents(__DIR__.'/app/config/product_header.yml'));
+    acf_add_local_field_group($fields);
 }
 
 // global twig vars

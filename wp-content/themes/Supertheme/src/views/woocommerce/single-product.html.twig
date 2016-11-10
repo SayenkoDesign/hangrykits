@@ -6,8 +6,12 @@
             style="background-image: url('{% if post.get_field('header_background') %}{{ TimberImage(post.get_field('header_background')).src }}{% else %}{{ hero_background.url }}{% endif %}')"
     >
         <div class="content row column">
-            <h1>{% if post.get_field('header_heading') %}{{ post.get_field('header_heading') }}{% else %}{{ post.title }}{% endif %}</h1>
-            <img src="{{post.thumbnail.src}}" class="my-thumb-class" alt="Image for {{post.title}}" />
+            <h1>{% if post.get_field('header_tagline') %}{{ post.get_field('header_tagline') }}{% else %}{{ post.title }}{% endif %}</h1>
+            {% if post.get_field('header_product') %}
+                <img src="{{ TimberImage(post.get_field('header_product')).src }}" class="my-thumb-class" alt="Image for {{post.title}}" />
+            {% else %}
+                <img src="{{post.thumbnail.src}}" class="my-thumb-class" alt="Image for {{post.title}}" />
+            {% endif %}
         </div>
         <div class="share row align-bottom">
             <div class="small-12 medium-4 columns medium-text-left">

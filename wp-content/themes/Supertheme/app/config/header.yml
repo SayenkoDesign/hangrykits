@@ -17,7 +17,7 @@ fields:
     label:  "Heading"
     name:  "header_heading"
     type:  "text"
-    instructions:  ""
+    instructions:  "Defaults to product title"
     required:  0,
     conditional_logic:  0,
     wrapper:  { width:  "33", class:  "", id:  "" }
@@ -34,7 +34,7 @@ fields:
     name:  "header_background"
     type:  "file"
     return_format: "array"
-    instructions:  ""
+    instructions:  "Defaults to product image."
     required:  0,
     conditional_logic:  0,
     wrapper:  { width:  "33", class:  "", id:  "" }

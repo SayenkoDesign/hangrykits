@@ -1,15 +1,14 @@
 .single-product-details {
+  .before-product {
+    padding: $global-padding;
+    background-color: $body-background;
+  }
   .overview {
     padding: $global-padding*2 0;
     margin-bottom: $global-margin;
     > div:first-of-type {
       @include breakpoint(large) {
         border-right: 1px solid $dark-gray;
-      }
-    }
-    > div:last-of-type {
-      @include breakpoint(large) {
-        border-left: 1px solid $dark-gray;
       }
     }
     h3 {

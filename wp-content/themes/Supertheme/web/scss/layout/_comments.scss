@@ -1,5 +1,6 @@
 .comments {
   background-color: $white;
+  padding-bottom: $global-padding*4;
   .review {
     text-align: center;
     margin-bottom: $global-margin*4;
@@ -25,6 +26,8 @@
       color: $white;
       background-color: $primary-color;
       border-radius: 3px;
+      font-size: rem-calc(13px);
+      padding: rem-calc(12px) rem-calc(48px);
     }
     .review-form {
       text-align: left;
@@ -41,6 +44,74 @@
     .difference {
       font-size: rem-calc(14px);
       color: $medium-gray;
+    }
+  }
+  .comment-sort {
+    text-align: right;
+    .button-group {
+      display: inline-block;
+      .button {
+        font-weight: normal;
+        border-radius: 0;
+        font-size: rem-calc(13px);
+      }
+      .dropdown.button {
+        margin-left: -4px;
+        &::after {
+          display: none;
+        }
+      }
+    }
+    .dropdown-pane {
+      background-color: $white;
+      padding: 0;
+      a {
+        color: $body-font-color;
+        &:hover {
+          background-color: $body-background;
+        }
+      }
+    }
+  }
+
+  .comments-navi {
+    .row {
+      position: relative;
+    }
+    .bar {
+      position: absolute;
+      top: calc(50% - 4px);
+      width: 100%;
+      height: 1px;
+      background-color: $dark-gray;
+    }
+    .background {
+      position: relative;
+      display: inline-block;
+      background-color: $white;
+      padding: rem-calc(8px);
+      z-index: 1;
+    }
+    i.fa {
+      display: inline-block;
+      position: relative;
+      top: -4px;
+      margin: 0 rem-calc(8px);
+      text-align: center;
+      height: 28px;
+      width: 28px;
+      border: 2px solid map-get($foundation-palette, primary);
+      border-radius: 100%;
+      &::before {
+        position: relative;
+        top: 4px;
+      }
+      &.fa-chevron-left::before  {
+        right: 1px;
+      }
+      &.fa-chevron-right::before  {
+        left: 2px;
+      }
     }
   }
 }

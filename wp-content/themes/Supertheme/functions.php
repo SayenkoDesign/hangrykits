@@ -27,7 +27,7 @@ add_filter('timber/context', function($data){
     $data['shop_url'] = get_permalink(wc_get_page_id('shop'));
     // menus
     $data['large_menu'] = wp_nav_menu([
-        "location" => is_user_logged_in() ? "loggedin_main_menu" : "loggedout_main_menu",
+        "theme_location" => is_user_logged_in() ? "loggedin_main_menu" : "loggedout_main_menu",
         "container" => false,
         "menu_class" => "dropdown menu",
         "echo" => false,
@@ -35,11 +35,16 @@ add_filter('timber/context', function($data){
         'items_wrap' => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>'
     ]);
     $data['small_menu'] = wp_nav_menu([
-        "location" => is_user_logged_in() ? "loggedin_side_menu" : "loggedout_side_menu",
+        "theme_location" => is_user_logged_in() ? "loggedin_side_menu" : "loggedout_side_menu",
         "container" => false,
         "menu_class" => "vertical menu",
         "echo" => false,
     ]);
+    // highlights section
+    $data['highlights_header'] = get_field('highlights_heading', 'option');
+    $data['highlights_box'] = get_field('highlights_box', 'option');
+    $data['highlights'] = get_field('highlights', 'option');
+    //var_dump(get_field('highlights', 'option'));
     // widgets
     $data['sidebar'] = \Timber::get_widgets('sidebar');
     $data['footer_1'] = \Timber::get_widgets('footer_1');
@@ -61,12 +66,19 @@ add_filter('timber/context', function($data){
     return $data;
 });
 
+// add timber extensions
+add_filter('get_twig', function ($twig) {
+    /* this is where you can add your own fuctions to twig */
+    $twig->addExtension(new \Snilius\Twig\SortByFieldExtension());
+    return $twig;
+});
+
 // add menu and cart icons
 add_filter('wp_nav_menu_items', function ($items, $args) {
-    if(!is_object($args) || !property_exists($args, 'location')){
+    if(!is_object($args) || !property_exists($args, 'theme_location')){
         return $items;
     }
-    if ($args->location == 'loggedin_main_menu' || $args->location == 'loggedout_main_menu') {
+    if ($args->theme_location == 'loggedin_main_menu' || $args->theme_location == 'loggedout_main_menu') {
         $items = '<li class="menu-toggle"><a data-toggle="offCanvas"><i class="fa fa-bars"></i></a></li>'.$items;
         $items .= '<li class="cart">'
             .'<a href="'.wc_get_cart_url().'" title="'._( 'View your shopping cart' ).'">'
@@ -93,4 +105,15 @@ add_filter('woocommerce_add_to_cart_redirect', function ( $url ) {
     $url = WC()->cart->get_cart_url();
     // $url = wc_get_checkout_url(); // since WC 2.5.0
     return $url;
+});
+
+// move yoast down
+add_filter( 'wpseo_metabox_prio', function(){
+    return 'low';
+});
+
+// add comments query vars
+add_action('init',function () use($wp) {
+    $wp->add_query_var('comments_page', 1);
+    $wp->add_query_var('comments_sort', get_option('comment_order'));
 });

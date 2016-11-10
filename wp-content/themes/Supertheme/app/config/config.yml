@@ -107,6 +107,8 @@ services:
   twig.form_extension:
     class: "Symfony\\Bridge\\Twig\\Extension\\FormExtension"
     arguments: ["@twig.form_renderer"]
+  twig.sort_by_field:
+    class: "Snilius\\Twig\\SortByFieldExtension"
   twig.environment:
     class: "Twig_Environment"
     arguments: ["@twig.loader", "%twig.options%"]
@@ -115,6 +117,7 @@ services:
       - ["addExtension", ["@twig.preg"]]
       - ["addExtension", ["@twig.form_translation"]]
       - ["addExtension", ["@twig.form_extension"]]
+      - ["addExtension", ["@twig.sort_by_field"]]
   # Get timber with it
   timber:
     class: "Timber\\Timber"

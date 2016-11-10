@@ -9,9 +9,13 @@ $context['sidebar'] = $timber::get_widgets('shop-sidebar');
 
 if (is_singular('product')) {
     $context['post']    = $timber::get_post();
+    $context['comments_page'] = get_query_var('comments_page', 1);
+    $context['comments_per_page'] = get_option('comments_per_page');
+    $context['comments_sort'] = get_query_var('comments_sort', get_option('comment_order'));
     $product            = wc_get_product( $context['post']->ID );
     $context['product'] = $product;
     $context["acf"] = get_field_objects($context["post"]->ID);
+
     $context['related'] = [];
     foreach($product->get_related(3) as $k=>$v) {
         $context['related'][] = Timber::get_post($v);

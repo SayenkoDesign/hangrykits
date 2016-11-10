@@ -47,10 +47,10 @@
   bottom: rem-calc(32px);
   right: rem-calc(32px);
   @include breakpoint(medium) {
-    font-size: rem-calc(64px);
-    width: rem-calc(64px);
-    bottom: rem-calc(64px);
-    right: rem-calc(64px);
+    font-size: rem-calc(48px);
+    width: rem-calc(48px);
+    bottom: rem-calc(48px);
+    right: rem-calc(48px);
   }
   &:hover, &:active, &:focus {
     color: $white;
@@ -61,7 +61,7 @@
 i.fa.fa-star, i.fa.fa-star-half-o {
   color: map-get($foundation-palette, primary);
 }
-.woocommerce a.add-cart, .woocommerce a.add-wishlist {
+.woocommerce a.add-cart, .woocommerce button.add-wishlist {
   font-size: rem-calc(13px);
   margin-bottom: $global-margin;
   @include breakpoint(medium) {
@@ -79,7 +79,7 @@ i.fa.fa-star, i.fa.fa-star-half-o {
     color: $white;
   }
 }
-.woocommerce a.add-wishlist {
+.woocommerce button.add-wishlist {
   background-color: $body-background;
   border: rem-calc(2px) solid $body-font-color;
   &:hover {
@@ -88,6 +88,7 @@ i.fa.fa-star, i.fa.fa-star-half-o {
 }
 
 // generic woo commerce
+// background for shop related pages
 .woocommerce-page .off-canvas-content, .woocommerce-page .off-canvas-content {
   background-color: $white;
   .single-product-details {
@@ -97,20 +98,60 @@ i.fa.fa-star, i.fa.fa-star-half-o {
     background-color: $white;
   }
 }
-
+// success notice
+.woocommerce-message {
+  padding: $global-padding !important;
+  background-color: rgba(map-get($foundation-palette, success), 0.1);
+  border-top: none;
+  border-left: rem-calc(8px) solid map-get($foundation-palette, success);
+  &:before {
+    display: none;
+  }
+  &--info {
+    border-left: rem-calc(8px) solid #1e85be;
+    background-color: rgba(#1e85be, 0.1);
+  }
+  a.button {
+    color: $white;
+    background-color: map-get($foundation-palette, primary);
+    &:hover {
+      background-color: scale_color(map-get($foundation-palette, primary), $lightness: -14%);
+      color: $white;
+    }
+  }
+}
+// tables
 table tbody tr:nth-child(2n) {
   background-color: $white;
 }
-
+// coubon submit button
 #coupon_code {
   height: auto;
   padding: rem-calc(9px);
 }
-
+// more woocommerce buttons
 .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
   color: $white;
   background-color: map-get($foundation-palette, primary);
   &:hover {
+    color: $white;
     background-color: scale_color(map-get($foundation-palette, primary), $lightness: -14%);
+  }
+}
+
+// account page
+.woocommerce-account {
+  article {
+    padding: $global-padding*2 0;
+    h1 {
+      display: none;
+    }
+    h2 {
+      font-size: rem-calc(20px);
+      font-family: $body-font-family;
+    }
+    form.login {
+      margin: 0;
+    }
   }
 }

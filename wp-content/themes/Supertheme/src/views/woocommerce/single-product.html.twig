@@ -25,8 +25,12 @@
 {% endblock %}
 
 {% block body %}
-    {% do action('woocommerce_before_single_product') %}
     <article itemscope itemtype="http://schema.org/Product" class="single-product-details {{post.class}}">
+        <div class="before-product">
+            <div class="row column">
+                {% do action('woocommerce_before_single_product') %}
+            </div>
+        </div>
         <div class="row overview">
             <div class="small-12 medium-6 columns">
                 <div class="row align-middle">
@@ -62,7 +66,10 @@
                         </div>
                     </div>
                     <div class="small-12 medium-6 large-4 columns Large-text-center">
-                        <a href="{{ function('do_shortcode', '[add_to_cart_url id="'~product.id~'"]') }}" class="expand secondary button add-wishlist">Add to Cart | ${{ product.get_price() }}</a>
+                        <form class="cart" method="post" enctype='multipart/form-data' action="{{ function('add_query_arg', {'add-to-wishlist-itemid': product.id}) }} ?">
+                            <input type="hidden" name="add-to-cart" value="{{ product.id }}" />
+                            <button type="submit" class="expand secondary button add-wishlist">Add to Wishlist</button>
+                        </form>
                     </div>
                     <div class="small-12 medium-6 large-4 columns large-text-center">
                         <a href="{{ function('do_shortcode', '[add_to_cart_url id="'~product.id~'"]') }}" class="expand primary button add-cart">Add | ${{ product.get_price() }}</a>
@@ -74,30 +81,32 @@
             {{ product.post.post_excerpt }}
         </div>
         <div class="contents">
-            <div class="row column title">
-                <h3>Whats inside</h3>
-                <span class="linethrough"></span>
-            </div>
-            <div class="row align-center list">
-                <div class="shrink column">
-                    <ul class="no-bullet">
-                        {% for item in acf.inside.value %}
-                            {% if loop.index % 2 %}
-                                <li><a href="{{ item.url }}"><i class="fa fa-check"></i> {{ item.text }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
+            {% if acf.inside.value|length %}
+                <div class="row column title">
+                    <h3>Whats inside</h3>
+                    <span class="linethrough"></span>
                 </div>
-                <div class="shrink column">
-                    <ul class="no-bullet">
-                        {% for item in acf.inside.value %}
-                            {% if not loop.index % 2 %}
-                                <li><a href="{{ item.url }}"><i class="fa fa-check"></i> {{ item.text }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
+                <div class="row align-center list">
+                    <div class="shrink column">
+                        <ul class="no-bullet">
+                            {% for item in acf.inside.value %}
+                                {% if loop.index % 2 %}
+                                    <li><a href="{{ item.url }}"><i class="fa fa-check"></i> {{ item.text }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="shrink column">
+                        <ul class="no-bullet">
+                            {% for item in acf.inside.value %}
+                                {% if not loop.index % 2 %}
+                                    <li><a href="{{ item.url }}"><i class="fa fa-check"></i> {{ item.text }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
             <div class="row column title">
                 <h3>100% Satisfaction Guaranteed</h3>
                 <span class="linethrough"></span>
@@ -105,46 +114,35 @@
             <div class="row points text-center">
                 <div class="small-12 medium-6 large-3 columns">
                     <div class="point">
-                        <img src="{{ acf.highlights.value[0].image.url }}" />
-                        <h5>{{ acf.highlights.value[0].heading }}</h5>
-                        <div>{{ acf.highlights.value[0].content }}</div>
+                        <img src="{{ highlights[0].image.url }}" />
+                        <h5>{{ highlights[0].heading }}</h5>
+                        <div>{{ highlights[0].content }}</div>
                     </div>
                 </div>
                 <div class="small-12 medium-6 large-3 columns">
                     <div class="point">
-                        <img src="{{ acf.highlights.value[1].image.url }}" />
-                        <h5>{{ acf.highlights.value[1].heading }}</h5>
-                        <div>{{ acf.highlights.value[1].content }}</div>
+                        <img src="{{ highlights[1].image.url }}" />
+                        <h5>{{ highlights[1].heading }}</h5>
+                        <div>{{ highlights[1].content }}</div>
                     </div>
                 </div>
                 <div class="small-12 medium-6 large-3 columns">
                     <div class="point">
-                        <img src="{{ acf.highlights.value[2].image.url }}" />
-                        <h5>{{ acf.highlights.value[2].heading }}</h5>
-                        <div>{{ acf.highlights.value[2].content }}</div>
+                        <img src="{{ highlights[2].image.url }}" />
+                        <h5>{{ highlights[2].heading }}</h5>
+                        <div>{{ highlights[2].content }}</div>
                     </div>
                 </div>
                 <div class="small-12 medium-6 large-3 columns">
                     <div class="point">
-                        <img src="{{ acf.highlights.value[3].image.url }}" />
-                        <h5>{{ acf.highlights.value[3].heading }}</h5>
-                        <div>{{ acf.highlights.value[3].content }}</div>
+                        <img src="{{ highlights[3].image.url }}" />
+                        <h5>{{ highlights[3].heading }}</h5>
+                        <div>{{ highlights[3].content }}</div>
                     </div>
                 </div>
             </div>
         </div>
         {% include 'woocommerce/related-products.html.twig' %}
-
-
-        {#
-        <div class="entry-images">
-            {% do action('woocommerce_before_single_product_summary') %}
-        </div>
-        <div class="summary entry-summary">
-            {% do action('woocommerce_single_product_summary') %}
-        </div>
-        {% do action('woocommerce_after_single_product_summary') %}
-        #}
 
         <meta itemprop="url" content="{{ post.link }}" />
     </article>
@@ -158,35 +156,30 @@
                 {{ review }}
             </div>
         </div>
-        {% for comment in post.comments %}
-            <div class="row comment">
-                <div class="small-12 medium-4 large-3 columns">
-                    <div class="stars">
-                        {% for i in range(1,5) %}
-                            {% if comment.rating >= i %}
-                                <i class="fa fa-star"></i>
-                            {% elseif comment.rating >= i - 0.5 %}
-                                <i class="fa fa-star-half-o"></i>
-                            {% else %}
-                                <i class="fa fa-star-o"></i>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                    <h6>{{ comment.author.name }}</h6>
-                    {% set difference = date(comment.date|date('Y/m/d')).diff(date('now'|date('Y/m/d'))) %}
-                    <span class="difference">
-                        {% if difference.d == 0 %}
-                            today
-                        {% else %}
-                            {{ difference.d }} days ago
-                        {% endif %}
-                    </span>
-                </div>
-                <div class="small-12 medium-8 large-9 columns">
-                    <p>{{comment.content}}</p>
-                </div>
-            </div>
-        {% endfor %}
+        {% if not post.comments|length %}
+            <div class="row column"><h4>No Reviews</h4></div>
+        {% endif %}
+        {% if comments_sort == "asc" %}
+            {% for page in post.comments|reverse|batch(comments_per_page) %}
+                {% include 'woocommerce/comemnts.html.twig' %}
+            {% endfor %}
+        {% elseif comments_sort == "desc" %}
+            {% for page in post.comments|batch(comments_per_page) %}
+                {% include 'woocommerce/comemnts.html.twig' %}
+            {% endfor %}
+        {% elseif comments_sort == "lowest" %}
+            {% for page in post.comments|sortbyfield("rating")|batch(comments_per_page) %}
+                {% include 'woocommerce/comemnts.html.twig' %}
+            {% endfor %}
+        {% elseif comments_sort == "highest" %}
+            {% for page in post.comments|sortbyfield("rating")|reverse|batch(comments_per_page) %}
+                {% include 'woocommerce/comemnts.html.twig' %}
+            {% endfor %}
+        {% else %}
+            {% for page in post.comments|batch(comments_per_page) %}
+                {% include 'woocommerce/comemnts.html.twig' %}
+            {% endfor %}
+        {% endif %}
     </div>
     {% do action('woocommerce_after_single_product') %}
 {% endblock  %}

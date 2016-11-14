@@ -43,8 +43,14 @@
     @include breakpoint(small only) {
       margin-bottom: $global-margin;
     }
+    @include breakpoint(medium){
+      justify-content: flex-end;
+    }
     li {
       margin-left: $global-margin;
+      &:first-of-type {
+        margin-left: 0;
+      }
     }
     .icon-youtube:hover {
       @extend .icon-youtube-hover;

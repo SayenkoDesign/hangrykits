@@ -120,3 +120,18 @@ add_action('init',function () use($wp) {
     $wp->add_query_var('comments_page', 1);
     $wp->add_query_var('comments_sort', get_option('comment_order'));
 });
+
+// shortcode for lightbox
+add_shortcode('fancybox', function($atts, $content){
+    $settings = shortcode_atts([
+        'id' => 'fancybox_'.time(),
+        'title' => 'shortcode missing title="title text"',
+        'content' => 'Missing content between opening and closing shortcodes',
+    ], $atts);
+    return <<<HTML
+    <a href="#{$settings['id']}" class="fancybox">{$settings['title']}</a>
+    <div style="display: none;" id="{$settings['id']}">$content</div>
+HTML;
+});
+
+remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );

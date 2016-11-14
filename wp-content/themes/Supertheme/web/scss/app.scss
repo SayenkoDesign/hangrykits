@@ -20,6 +20,12 @@
 
 @import "single";
 
+mark {
+  background: none;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .off-canvas {
   left: 0;
   z-index: auto;
@@ -35,6 +41,7 @@
   font-weight: $global-weight-bold;
 }
 
+// scroll to top button
 .scroll-top {
   position: fixed;
   z-index: 1;
@@ -58,10 +65,23 @@
   }
 }
 
+// fancybox
+.fancybox-overlay {
+  background: rgba($black, 0.9);
+}
+.fancybox-skin {
+  @include breakpoint(medium) {
+    padding: $global-padding*2 !important;
+  }
+}
+
+// star ratings
 i.fa.fa-star, i.fa.fa-star-half-o {
   color: map-get($foundation-palette, primary);
 }
-.woocommerce a.add-cart, .woocommerce button.add-wishlist {
+
+// woo commerce buttons
+.woocommerce a.add-cart, .woocommerce a.add-wishlist {
   font-size: rem-calc(13px);
   margin-bottom: $global-margin;
   @include breakpoint(medium) {
@@ -79,7 +99,7 @@ i.fa.fa-star, i.fa.fa-star-half-o {
     color: $white;
   }
 }
-.woocommerce button.add-wishlist {
+.woocommerce a.add-wishlist {
   background-color: $body-background;
   border: rem-calc(2px) solid $body-font-color;
   &:hover {
@@ -88,6 +108,11 @@ i.fa.fa-star, i.fa.fa-star-half-o {
 }
 
 // generic woo commerce
+// heading for various management pages
+.wl-intro h2 {
+  font-size: rem-calc(20px);
+}
+
 // background for shop related pages
 .woocommerce-page .off-canvas-content, .woocommerce-page .off-canvas-content {
   background-color: $white;
@@ -99,17 +124,13 @@ i.fa.fa-star, i.fa.fa-star-half-o {
   }
 }
 // success notice
-.woocommerce-message {
+.woocommerce-message, .woocommerce-info {
   padding: $global-padding !important;
   background-color: rgba(map-get($foundation-palette, success), 0.1);
   border-top: none;
   border-left: rem-calc(8px) solid map-get($foundation-palette, success);
   &:before {
     display: none;
-  }
-  &--info {
-    border-left: rem-calc(8px) solid #1e85be;
-    background-color: rgba(#1e85be, 0.1);
   }
   a.button {
     color: $white;
@@ -120,9 +141,60 @@ i.fa.fa-star, i.fa.fa-star-half-o {
     }
   }
 }
+.woocommerce-info, .woocommerce-message--info {
+  border-left: rem-calc(8px) solid #1e85be;
+  background-color: rgba(#1e85be, 0.1);
+}
 // tables
+.woocommerce-tabs {
+  background-color: $white;
+}
+#wl-wrapper ul.wl-tabs {
+  background-color: $body-background;
+  margin-left: -1px;
+  > li.active > a {
+    border-color: $white;
+  }
+}
+#wl-wrapper .wl-actions-table {
+  margin: 0;
+  float: none;
+  select {
+    margin: 0 $global-margin 0;
+  }
+  td, tr, tbody {
+    border: none;
+    outline: none;
+  }
+}
+#wl-wrapper .wl-table.manage {
+  margin-bottom: 10px;
+}
+.woocommerce table.shop_table {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  + .wl-row {
+    padding-bottom: $global-margin;
+    padding-top: $global-margin;
+  }
+}
 table tbody tr:nth-child(2n) {
   background-color: $white;
+}
+#wl-wrapper .wl-form {
+  padding: $global-padding;
+}
+.woocommerce form .form-row {
+  padding: 0;
+  margin-bottom: $global-margin;
+}
+
+#sort-dropdown, #wlitemcat {
+  margin: 0 !important;
+}
+.product.woocommerce .wl-actions-table.wl-right tbody {
+  background: none;
 }
 // coubon submit button
 #coupon_code {
@@ -140,7 +212,7 @@ table tbody tr:nth-child(2n) {
 }
 
 // account page
-.woocommerce-account {
+.woocommerce-account, .customize-support {
   article {
     padding: $global-padding*2 0;
     h1 {
@@ -154,4 +226,24 @@ table tbody tr:nth-child(2n) {
       margin: 0;
     }
   }
+}
+
+// navigation for account related pages
+.woocommerce-MyAccount-navigation {
+  ul {
+    list-style-type: none;
+    a {
+      text-transform: uppercase;
+      margin-bottom: $global-margin/2;
+      display: block;
+    }
+    .is-active a {
+      text-decoration: underline;
+    }
+  }
+}
+
+// coupons {
+.coupon-container.blue {
+  background-color: $light-gray;
 }

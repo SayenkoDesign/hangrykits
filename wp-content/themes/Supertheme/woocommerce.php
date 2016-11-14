@@ -12,12 +12,19 @@ if (is_singular('product')) {
     $context['comments_page'] = get_query_var('comments_page', 1);
     $context['comments_per_page'] = get_option('comments_per_page');
     $context['comments_sort'] = get_query_var('comments_sort', get_option('comment_order'));
-    $product            = wc_get_product( $context['post']->ID );
+
+    $product = wc_get_product();
     $context['product'] = $product;
     $context["acf"] = get_field_objects($context["post"]->ID);
 
     $context['related'] = [];
-    foreach($product->get_related(3) as $k=>$v) {
+    foreach(wc_get_product()->get_cross_sells() as $k=>$v) {
+        $context['related'][] = Timber::get_post($v);
+    }
+    foreach(wc_get_product()->get_upsells() as $k=>$v) {
+        $context['related'][] = Timber::get_post($v);
+    }
+    foreach($product->get_related(count($context['related'])%3) as $k=>$v) {
         $context['related'][] = Timber::get_post($v);
     }
 
@@ -57,6 +64,8 @@ if (is_singular('product')) {
 
 
     $timber::render('woocommerce/single-product.html.twig', $context);
+
+    echo add_query_arg(array('add-to-wishlist-itemid' => $product->id), $product->add_to_cart_url());
 }
 else {
     $posts = $timber::get_posts();

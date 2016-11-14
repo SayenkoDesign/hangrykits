@@ -1,6 +1,13 @@
 jQuery(function() {
     jQuery(document).foundation();
-    jQuery('.fancybox').fancybox();
+    jQuery('.fancybox').fancybox({
+        maxWidth: 600,
+        helpers: {
+            overlay: {
+                locked: false
+            }
+        }
+    });
     jQuery('.slick').slick();
 });
 

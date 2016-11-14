@@ -1,0 +1,26 @@
+{% set hero_share = true %}
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        section.hero {
+            background: none !important;
+        }
+        .page .off-canvas-content {
+            background-image: url('{{ shop_background.url }}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+{% endblock %}
+{% block hero_content %}
+    <div class="content">
+        <h1>So much snacks!!</h1>
+        <p>Hangry Kits will save you!</p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+{% endblock  %}

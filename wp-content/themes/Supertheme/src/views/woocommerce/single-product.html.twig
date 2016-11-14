@@ -70,10 +70,7 @@
                         </div>
                     </div>
                     <div class="small-12 medium-6 large-4 columns Large-text-center">
-                        <form class="cart" method="post" enctype='multipart/form-data' action="{{ function('add_query_arg', {'add-to-wishlist-itemid': product.id}) }} ?">
-                            <input type="hidden" name="add-to-cart" value="{{ product.id }}" />
-                            <button type="submit" class="expand secondary button add-wishlist">Add to Wishlist</button>
-                        </form>
+                        <a class="expand secondary button add-wishlist" href="{{ function('add_query_arg', {'add-to-wishlist-itemid': product.id}) }}">Add to wishlist</a>
                     </div>
                     <div class="small-12 medium-6 large-4 columns large-text-center">
                         <a href="{{ function('do_shortcode', '[add_to_cart_url id="'~product.id~'"]') }}" class="expand primary button add-cart">Add | ${{ product.get_price() }}</a>
@@ -82,7 +79,7 @@
             </div>
         </div>
         <div class="row column short-description">
-            {{ product.post.post_excerpt }}
+            {{ function('do_shortcode', product.post.post_excerpt) }}
         </div>
         <div class="contents">
             {% if acf.inside.value|length %}
@@ -95,7 +92,11 @@
                         <ul class="no-bullet">
                             {% for item in acf.inside.value %}
                                 {% if loop.index % 2 %}
-                                    <li><a href="{{ item.url }}"><i class="fa fa-check"></i> {{ item.text }}</a></li>
+                                    {% if item.url %}
+                                        <li><a href="{{ item.url }}"><i class="fa fa-check"></i> {{ item.text }}</a></li>
+                                    {% else %}
+                                        <li><i class="fa fa-check"></i> {{ item.text }}</li>
+                                    {% endif %}
                                 {% endif %}
                             {% endfor %}
                         </ul>
@@ -104,7 +105,11 @@
                         <ul class="no-bullet">
                             {% for item in acf.inside.value %}
                                 {% if not loop.index % 2 %}
-                                    <li><a href="{{ item.url }}"><i class="fa fa-check"></i> {{ item.text }}</a></li>
+                                    {% if item.url %}
+                                        <li><a href="{{ item.url }}"><i class="fa fa-check"></i> {{ item.text }}</a></li>
+                                    {% else %}
+                                        <li><i class="fa fa-check"></i> {{ item.text }}</li>
+                                    {% endif %}
                                 {% endif %}
                             {% endfor %}
                         </ul>

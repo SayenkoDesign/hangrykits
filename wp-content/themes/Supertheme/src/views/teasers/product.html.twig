@@ -1,5 +1,9 @@
 <div class="column text-center">
-    {{ function("get_the_post_thumbnail", post.ID) }}
+    {% if function("get_the_post_thumbnail", post.ID) %}
+        {{ function("get_the_post_thumbnail", post.ID) }}
+    {% else %}
+        <img src="/wp-content/plugins/woocommerce/assets/images/placeholder.png" alt="">
+    {% endif %}
     <h4>{{ post.post_title }}</h4>
     <div class="weight-container">
         <div class="bar"></div>

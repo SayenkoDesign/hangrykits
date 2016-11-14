@@ -78,4 +78,21 @@
       color: $white;
     }
   }
+  .comments {
+    background: none;
+    color: $white;
+  }
+}
+.reviews .product-teasers {
+  background: none;
+  .text-center { text-align: left; }
+  h4 {
+    margin-bottom: $global-margin*2;
+  }
+  .comments {
+    background: none;
+    .comment {
+      padding-bottom: $global-margin;
+    }
+  }
 }

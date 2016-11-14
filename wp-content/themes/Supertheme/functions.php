@@ -1,6 +1,11 @@
 <?php
 require_once __DIR__.'/app/bootstrap.php';
 require_once __DIR__.'/src/functions.php';
+use Timber\Timber;
+use Timber\Post;
+
+/** @var $timber Timber */
+$timber = $container->get('timber');
 
 // add woocommerce support
 add_action('after_setup_theme', function (){
@@ -132,6 +137,12 @@ add_shortcode('fancybox', function($atts, $content){
     <a href="#{$settings['id']}" class="fancybox">{$settings['title']}</a>
     <div style="display: none;" id="{$settings['id']}">$content</div>
 HTML;
+});
+
+// shortcode for lightbox
+add_shortcode('reviews', function() use($timber) {
+    $context['posts'] = $timber::get_posts(['post_type' => 'product']);
+    $timber::render('shortcodes/reviews.html.twig', $context);
 });
 
 remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );

@@ -1,0 +1,48 @@
+<section class="products reviews">
+    <div class="row small-up-1 medium-up-2 large-up-3 product-teasers">
+        {% for post in posts if post.comments %}
+            {% set product = function("wc_get_product", post.ID)%}
+            {% embed ["teasers/product.html.twig"] with {product: product, post: post} only %}
+                {% block product_weight %}{% endblock %}
+                {% block product_rating %}{% endblock %}
+                {% block product_add %}{% endblock %}
+                {% block product_excerpt %}{% endblock %}
+                {% block product_link %}{% endblock %}
+                {% block product_title %}<h4>{{ post.title }} Reviews</h4>{% endblock %}
+                {% block product_after %}
+                    <div class="comments">
+                    {% for comment in post.comments %}
+                        <div class="row comment">
+                            <div class="small-12 columns">
+                                <div class="stars">
+                                    {% for i in range(1,5) %}
+                                        {% if comment.rating >= i %}
+                                            <i class="fa fa-star"></i>
+                                        {% elseif comment.rating >= i - 0.5 %}
+                                            <i class="fa fa-star-half-o"></i>
+                                        {% else %}
+                                            <i class="fa fa-star-o"></i>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <h6>{{ comment.author.name }}</h6>
+                                {% set difference = date(comment.date|date('Y/m/d')).diff(date('now'|date('Y/m/d'))) %}
+                                <span class="difference">
+                                    {% if difference.d == 0 %}
+                                        today
+                                    {% else %}
+                                        {{ difference.d }} days ago
+                                    {% endif %}
+                                </span>
+                            </div>
+                            <div class="small-12 columns">
+                                <p>{{comment.content}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        {% endfor %}
+    </div>
+</section>

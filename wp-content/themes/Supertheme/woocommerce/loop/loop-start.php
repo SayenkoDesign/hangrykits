@@ -16,4 +16,6 @@
  * @version     2.0.0
  */
 ?>
-<ul class="products">
+
+<section class="products">
+    <div class="row small-up-1 medium-up-3 product-teasers">

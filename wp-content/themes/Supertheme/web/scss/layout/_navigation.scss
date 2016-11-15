@@ -2,10 +2,20 @@
   position: absolute;
   width:100%;
 }
+body:not(.ie) .title-bar {
+  left: 0 !important;
+}
 .title-bar {
   padding: $global-margin*1.5 0;
   transition: background-color 500ms;
-  left: 0 !important;// prevents moving left when off canvas is open and scrolled down
+  // not ie 10+
+  // ie 10+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    > .row.column {
+      position: relative;
+      left: -30%;
+    }
+  }
   &.is-stuck {
     background-color: rgba($black, 0.8);
   }
@@ -60,6 +70,9 @@
 
 .off-canvas-wrapper {
   background-color: $dark-gray;
+  .off-canvas {
+    position: absolute;
+  }
   .close-button {
     color: $light-gray;
     &:hover {

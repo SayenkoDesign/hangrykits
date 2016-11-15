@@ -9,7 +9,7 @@
             <h1>{% if post.get_field('header_tagline') %}{{ post.get_field('header_tagline') }}{% else %}{{ post.title }}{% endif %}</h1>
             {% if post.get_field('header_product') %}
                 <img src="{{ TimberImage(post.get_field('header_product')).src }}" class="my-thumb-class" alt="Image for {{post.title}}" />
-            {% else %}
+            {% elseif post.thumbnail.src %}
                 <img src="{{post.thumbnail.src}}" class="my-thumb-class" alt="Image for {{post.title}}" />
             {% endif %}
         </div>

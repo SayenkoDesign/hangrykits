@@ -1,18 +1,22 @@
 <div class="column text-center">
     {% block product_before %}{% endblock %}
     {% block product_image %}
-        {% if function("get_the_post_thumbnail", post.ID) %}
-            {{ function("get_the_post_thumbnail", post.ID) }}
-        {% else %}
-            <img src="/wp-content/plugins/woocommerce/assets/images/placeholder.png" alt="">
-        {% endif %}
+        <a href="{{ function("get_post_permalink", post.ID) }}" class="featured">
+            {% if function("get_the_post_thumbnail", post.ID) %}
+                {{ function("get_the_post_thumbnail", post.ID) }}
+            {% else %}
+                <img src="/wp-content/plugins/woocommerce/assets/images/placeholder.png" alt="">
+            {% endif %}
+        </a>
     {% endblock %}
     {% block product_title %}<h4>{{ post.post_title }}</h4>{% endblock %}
     {% block product_weight %}
-        <div class="weight-container">
-            <div class="bar"></div>
-            <div class="weight">{{ product.get_weight() }} lbs.</div>
-        </div>
+        {% if product.get_weight() %}
+            <div class="weight-container">
+                <div class="bar"></div>
+                <div class="weight">{{ product.get_weight() }} lbs.</div>
+            </div>
+        {% endif %}
     {% endblock %}
     {% block product_rating %}
         <div class="stars">

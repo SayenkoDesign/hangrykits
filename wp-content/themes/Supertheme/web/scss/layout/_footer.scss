@@ -73,7 +73,7 @@
   // form
   .gform_wrapper {
     position: relative;
-    max-width: rem-calc(400px);
+    max-width: rem-calc(300px);
     margin: 0 auto;
   }
   .gform_wrapper ul.gform_fields li.gfield {
@@ -102,10 +102,15 @@
       box-shadow: none;
     }
   }
-  .gform_wrapper .gform_body {
+  .gform_wrapper .gform_body,
+  .gform_wrapper.gf_browser_chrome .gform_body {
     width: calc(100% - 85px);
     display: inline-block;
   }
+  .gform_wrapper.gf_browser_ie .gform_body {
+    width: calc(100% - 65px);
+  }
+
   .gform_wrapper .gform_footer {
     display: inline-block;
     padding: 0;
@@ -114,6 +119,7 @@
     right: 0;
     top: 0;
     width: auto;
+    background-color: map-get($foundation-palette, secondary);
   }
   .gform_validation_error.gform_wrapper .gform_footer {
     top: rem-calc(105px);

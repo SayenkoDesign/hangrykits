@@ -28,7 +28,7 @@
         {{ function('wp_head') }}
     {% endblock %}
 </head>
-<body class="{% block classes %}{{ body_class }}{% endblock %}">
+<body class="{% block classes %}{{ body_class }}{% endblock %} <!--[if IE ]>ie<![endif]-->">
     <div class="off-canvas-wrapper">
         <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
             <div class="off-canvas position-left" id="offCanvas" data-off-canvas>

@@ -47,7 +47,7 @@
             </div>
         {% endif %}
     {% endfor %}
-    <div class="comments-navi text-center">
+    <div class="comments-navi text-center {% if loop.first and loop.last %}no-pagination{% endif %}">
         <div class="row column">
             <div class="bar"></div>
             <div class="background">

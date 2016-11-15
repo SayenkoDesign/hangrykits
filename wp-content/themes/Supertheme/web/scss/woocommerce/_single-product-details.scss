@@ -1,4 +1,5 @@
-.single-product-details {
+.woocommerce article.single-product-details {
+  padding-bottom: 0;
   .before-product {
     padding: $global-padding;
     background-color: $body-background;
@@ -53,7 +54,7 @@
         left: map-get($grid-column-gutter, medium)/2;
         right: map-get($grid-column-gutter, medium)/2;
         height: 2px;
-        background-color: $body-font-color;
+        background-color: #adadad;
       }
       h3 {
         font-family: $body-font-family;

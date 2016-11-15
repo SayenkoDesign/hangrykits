@@ -3,6 +3,17 @@
 {% block classes %}
     {{ parent() }} archive
 {% endblock %}
+{% block hero_content %}
+    <div class="content">
+        {% if title is defined and title %}
+            <h1>{{ title }}</h1>
+        {% else %}
+            <h1>{% if post.get_field('header_heading') %}{{ post.get_field('header_heading') }}{% else %}{{ post.title }}{% endif %}</h1>
+        {% endif %}
+        {{ post.get_field('header_content') | wpautop}}
+    </div>
+{% endblock %}
+{% block title %}{% endblock %}
 {% block content %}
     {{ post.content }}
 {% endblock  %}

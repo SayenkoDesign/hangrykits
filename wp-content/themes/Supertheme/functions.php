@@ -101,7 +101,7 @@ add_filter('wp_nav_menu_items', function ($items, $args) {
 
 // change widget titles to h6
 add_filter('widget_title', function($title) {
-    return '<h5>'.$title.'</h5>';
+    return '<h6>'.$title.'</h6>';
 });
 
 // add stylesheet to admin pages

@@ -8,6 +8,12 @@
     font-size: rem-calc(21px);
     font-weight:bold;
   }
+  a.featured {
+    transition: opacity 0.5s linear;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
   img {
     height: 280px;
     margin-bottom: $global-margin;
@@ -41,12 +47,14 @@
       left: 25%;
       right: 25%;
       height: 1px;
-      background-color: $dark-gray;
+      background-color: #7c7c7c;
     }
   }
   .excerpt {
+    color: #7c7c7c;
     font-size: rem-calc(14px);
-    margin-bottom: $global-margin;
+    margin: 0 auto $global-margin auto;
+    max-width: rem-calc(300px);
   }
   a.add-cart {
     display: inline-block;
@@ -70,12 +78,19 @@
     .stars {
       color: $white;
     }
+    .fa-star-o {
+      opacity: 0.5;
+    }
+    .reviews {
+      opacity: 0.5;
+    }
     .bar {
       display: none;
     }
     .weight {
       background: none;
       color: $white;
+      opacity: 0.5;
     }
   }
   .comments {
@@ -95,4 +110,8 @@
       padding-bottom: $global-margin;
     }
   }
+}
+.not-found {
+  text-align: center;
+  color: $white;
 }

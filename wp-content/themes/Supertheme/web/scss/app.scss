@@ -53,6 +53,7 @@ mark {
   width: rem-calc(32px);
   bottom: rem-calc(32px);
   right: rem-calc(32px);
+  border-radius: 0.5rem;
   @include breakpoint(medium) {
     font-size: rem-calc(48px);
     width: rem-calc(48px);
@@ -215,7 +216,7 @@ table tbody tr:nth-child(2n) {
 .woocommerce-account, .customize-support {
   article {
     padding: $global-padding*2 0;
-    h1 {
+    h1:not('.not-found') {
       display: none;
     }
     h2 {

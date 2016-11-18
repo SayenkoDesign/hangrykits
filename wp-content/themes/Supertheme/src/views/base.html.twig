@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1">
         <meta name="description" content="{{ site.description }}">
+        <meta name="google-site-verification" content="rrY1CxTiNMPPrCDi9FC1guei3ZpqVFLa-G3iDrhQczY" />
         <link rel="pingback" href="{{ site.pingback_url }}" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
@@ -47,6 +48,65 @@
                                     {{ large_menu }}
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                {% endblock %}
+
+                {% block cart %}
+                    <div id="cart">
+                        <div class="row column text-center title">
+                            <h1>Your Box</h1>
+                        </div>
+                        <div class="count">
+                            <img src="{{ theme.link }}/web/images-min/cart-dark.min.png" alt="cart"> {{ woo.cart.get_cart_contents_count() }} items
+                        </div>
+                        {{ function('do_action', 'woocommerce_before_cart_table') }}
+                        <form action="{{ cart_url }}" method="post">
+                            {{ function('do_action', 'woocommerce_before_cart_contents') }}
+                            {% for id, item in woo.cart.get_cart() %}
+                                {% set product = function('apply_filters', 'woocommerce_cart_item_product', item['data'], item, id) %}
+                                {% set product_id = function('apply_filters', 'woocommerce_cart_item_product_id', item['product_id'], item, item_key) %}
+                                <div class="row item">
+                                    <div class="shrink column">
+                                        {{ product.get_image() }}
+                                    </div>
+                                    <div class="expand column">
+                                        <div class="row align-bottom medium-unstack">
+                                            <div class="shrink column">
+                                                <h4>{{ product.get_title() }}</h4>
+                                                {% if product.is_sold_individually() %}
+                                                    $product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
+                                                {% else %}
+                                                    {{ function('woocommerce_quantity_input', {
+                                                            'input_name': "cart["~id~"][qty]",
+                                                            'input_value': item['quantity'],
+                                                            'max_value': product.backorders_allowed() ? '' : product.get_stock_quantity(),
+                                                            'min_value': '0'
+                                                        }, product, false)
+                                                    }}
+                                                {% endif %}
+                                            </div>
+                                            <div class="shrink column medium-text-right">{{ woo.cart.get_product_price(product) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </form>
+                        <div class="total">
+                            {% for code, coupon in woo.cart.get_coupons %}
+                                <div class="row coupon">
+                                    <div class="shrink column">{{ function('wc_cart_totals_coupon_label', coupon) }}</div>
+                                    <div class="shrink column">{{ function('wc_cart_totals_coupon_html', coupon) }}</div>
+                                </div>
+                            {% endfor %}
+                            <div class="row">
+                                <div class="shrink column">Total</div>
+                                <div class="shrink column">{{ function('wc_cart_totals_order_total_html') }}</div>
+                            </div>
+                        </div>
+                        <div class="row text-center buttons">
+                            <a href="{{ shop_url }}" class="secondary button">Shop</a>
+                            <a href="{{ checkout_url }}" class="primary button">Checkout</a>
                         </div>
                     </div>
                 {% endblock %}
@@ -99,12 +159,12 @@
                 {% block footer %}
                     <footer class="footer">
                         <div class="row top">
-                            <div class="small-12 large-4 columns"><ul class="no-bullet">{{ footer_1 }}</ul></div>
-                            <div class="small-12 large-8 columns">
+                            <div class="small-12 large-3 columns footer-1"><ul class="no-bullet">{{ footer_1 }}</ul></div>
+                            <div class="small-12 large-9 columns">
                                 <div class="row">
-                                    <div class="small-12 medium-4 columns"><ul class="no-bullet">{{ footer_2 }}</ul></div>
-                                    <div class="small-12 medium-4 columns"><ul class="no-bullet">{{ footer_3 }}</ul></div>
-                                    <div class="small-12 medium-4 columns"><ul class="no-bullet">{{ footer_4 }}</ul></div>
+                                    <div class="small-12 medium-4 columns footer-2"><ul class="no-bullet">{{ footer_2 }}</ul></div>
+                                    <div class="small-12 medium-4 columns footer-3"><ul class="no-bullet">{{ footer_3 }}</ul></div>
+                                    <div class="small-12 medium-4 columns footer-4"><ul class="no-bullet">{{ footer_4 }}</ul></div>
                                 </div>
                             </div>
                         </div>

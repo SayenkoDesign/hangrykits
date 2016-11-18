@@ -41,6 +41,70 @@ mark {
   font-weight: $global-weight-bold;
 }
 
+// cart
+#cart {
+  display: none;
+  h1 {
+    color: map-get($foundation-palette, primary);
+    margin-bottom: $global-margin * 2;
+  }
+  .count {
+    border: 1px solid $dark-gray;
+    padding: $global-padding * 1.5;
+  }
+  .item {
+    padding: $global-padding * 1.5;
+    border: 1px solid $dark-gray;
+    border-top: none;
+    .expand .row {
+      justify-content: space-between;
+    }
+    h4 {
+      color: $body-font-color;
+    }
+    .quantity input {
+      border-radius: rem-calc(8px);
+      max-width: 4rem;
+      border: rem-calc(2px) solid $body-font-color;
+      margin: 0;
+      @include breakpoint(small only) {
+        margin-bottom: $global-margin;
+      }
+    }
+  }
+  .total {
+    padding: $global-padding * 1;
+    border: 1px solid $dark-gray;
+    border-top: none;
+    .coupon {
+      margin-bottom: $global-margin;
+    }
+    .row {
+      justify-content: space-between;
+    }
+  }
+  .buttons {
+    padding: $global-padding * 1.5;
+    border: 1px solid $dark-gray;
+    border-top: none;
+    justify-content: center;
+    .button {
+      margin: 0 $global-margin/2;
+    }
+    .secondary {
+      color: $body-font-color;
+      background-color: $white;
+      border: rem-calc(2px) solid $body-font-color;
+      @include breakpoint(small only) {
+        margin-bottom: $global-margin;
+      }
+      &:hover {
+        background-color: scale_color($body-background, $lightness: -14%);
+      }
+    }
+  }
+}
+
 // scroll to top button
 .scroll-top {
   position: fixed;
@@ -51,28 +115,52 @@ mark {
   text-align: center;
   font-size: rem-calc(32px);
   width: rem-calc(32px);
-  bottom: rem-calc(32px);
+  bottom: rem-calc(96px);
   right: rem-calc(32px);
-  border-radius: 0.5rem;
+  border-radius: 100%;
   @include breakpoint(medium) {
     font-size: rem-calc(48px);
     width: rem-calc(48px);
-    bottom: rem-calc(48px);
+    bottom: rem-calc(96px);
     right: rem-calc(48px);
+  };
+  @include breakpoint(xlarge) {
+    right: calc(50% - 600px + 16px);
   }
   &:hover, &:active, &:focus {
     color: $white;
     background-color: scale_color(map-get($foundation-palette, primary), $lightness: -14%);
   }
+  .fa {
+    position: relative;
+    top: rem-calc(-2px);
+    @include breakpoint(medium) {
+      top: rem-calc(-4px);
+    }
+  }
 }
 
 // fancybox
 .fancybox-overlay {
-  background: rgba($black, 0.9);
+  background: $white;
 }
 .fancybox-skin {
+  padding: 0 !important;
+}
+.fancybox-opened .fancybox-skin {
+  box-shadow: none;
+  background: none;
+}
+.fancybox-inner {
+  height: auto !important;
+  margin-bottom: 20px;
+}
+.fancybox-close {
+  @extend .icon-close;
+  background-size: auto;
   @include breakpoint(medium) {
-    padding: $global-padding*2 !important;
+    top: -2 * $global-margin;
+    right: -2 *  $global-margin;
   }
 }
 
@@ -83,7 +171,8 @@ i.fa.fa-star, i.fa.fa-star-half-o {
 
 // woo commerce buttons
 .woocommerce a.add-cart, .woocommerce a.add-wishlist {
-  font-size: rem-calc(13px);
+  font-size: rem-calc(11px);
+  padding: rem-calc(12px) rem-calc(36px);
   margin-bottom: $global-margin;
   @include breakpoint(medium) {
     width: 100%;
@@ -102,7 +191,7 @@ i.fa.fa-star, i.fa.fa-star-half-o {
 }
 .woocommerce a.add-wishlist {
   background-color: $body-background;
-  border: rem-calc(2px) solid $body-font-color;
+  border: rem-calc(2px) solid #c3c3c3;
   &:hover {
     background-color: scale_color($body-background, $lightness: -14%);
   }
@@ -117,6 +206,7 @@ i.fa.fa-star, i.fa.fa-star-half-o {
 // background for shop related pages
 .woocommerce-page .off-canvas-content, .woocommerce-page .off-canvas-content {
   background-color: $white;
+  box-shadow: none;
   .single-product-details {
     background-color: $body-background;
   }
@@ -125,7 +215,7 @@ i.fa.fa-star, i.fa.fa-star-half-o {
   }
 }
 // success notice
-.woocommerce-message, .woocommerce-info {
+.woocommerce-message, .woocommerce-info, .woocommerce-error {
   padding: $global-padding !important;
   background-color: rgba(map-get($foundation-palette, success), 0.1);
   border-top: none;
@@ -145,6 +235,10 @@ i.fa.fa-star, i.fa.fa-star-half-o {
 .woocommerce-info, .woocommerce-message--info {
   border-left: rem-calc(8px) solid #1e85be;
   background-color: rgba(#1e85be, 0.1);
+}
+.woocommerce-error {
+  border-left: rem-calc(8px) solid #b81c23;
+  background-color: rgba(#b81c23, 0.1);
 }
 // tables
 .woocommerce-tabs {
@@ -211,7 +305,29 @@ table tbody tr:nth-child(2n) {
     background-color: scale_color(map-get($foundation-palette, primary), $lightness: -14%);
   }
 }
-
+// quanity cart input
+.woocommerce .quantity {
+  @include breakpoint(673px) {
+    height: 40px;
+  }
+  @include breakpoint(1040px) {
+    height: auto;
+  }
+  .qty {
+    @include breakpoint(small) {
+      width: 100%;
+      text-align: right;
+    }
+    @include breakpoint(673px) {
+      width: 4rem;
+      text-align: right;
+      float: right;
+    }
+    @include breakpoint(768px) {
+      float: none;
+    }
+  }
+}
 // account page
 .woocommerce-account, .customize-support {
   article {

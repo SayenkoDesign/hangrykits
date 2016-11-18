@@ -93,6 +93,7 @@ add_filter('wp_nav_menu_items', function ($items, $args) {
     if ($args->theme_location == 'loggedin_main_menu' || $args->theme_location == 'loggedout_main_menu') {
         $items = '<li class="menu-toggle"><a data-toggle="offCanvas"><i class="fa fa-bars"></i></a></li>'.$items;
         $items .= '<li class="cart">'
+            .'<a href="'.WC()->cart->get_cart_url().'" title="'._( 'View your shopping cart' ).'">'
             .'<img src="'.get_stylesheet_directory_uri().'/web/images-min/cart.min.png" alt="cart">'
             .(WC()->cart->get_cart_contents_count()?'<span class="badge">'.WC()->cart->get_cart_contents_count().'</span>':'')
             .'</a>'

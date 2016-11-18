@@ -2,11 +2,14 @@
   padding: $global-padding*4 0;
   background-color: $white;
   h2 {
-    margin: 0;
+    margin: 0 !important;
+    font-family: $header-font-family !important;
+    font-size: map-get(map-get($header-sizes, medium), h2) !important;
   }
   h2 + p {
     font-size: rem-calc(21px);
     font-weight:bold;
+    margin-bottom: $global-margin*3;
   }
   a.featured {
     transition: opacity 0.5s linear;

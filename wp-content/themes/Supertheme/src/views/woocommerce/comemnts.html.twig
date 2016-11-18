@@ -51,9 +51,9 @@
         <div class="row column">
             <div class="bar"></div>
             <div class="background">
-                {% if not loop.first %}<a href="{{ function('add_query_arg', 'comments_page', loop.index-1) }}"><i class="fa fa-chevron-left"></i></a>{% endif %}
+                {% if not loop.first %}<a href="{{ function('add_query_arg', 'comments_page', loop.index-1) }}"><i class="fa fa-angle-left"></i></a>{% endif %}
                 {{ loop.index }} - {{ min(loop.index+comments_per_page-1, post.comments|length) }} of {{ post.comments|length }} Reviews
-                {% if not loop.last %}<a href="{{ function('add_query_arg', 'comments_page', loop.index+1) }}"><i class="fa fa-chevron-right"></i></a>{% endif %}
+                {% if not loop.last %}<a href="{{ function('add_query_arg', 'comments_page', loop.index+1) }}"><i class="fa fa-angle-right"></i></a>{% endif %}
             </div>
         </div>
     </div>

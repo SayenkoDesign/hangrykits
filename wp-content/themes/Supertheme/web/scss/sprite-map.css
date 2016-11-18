@@ -22,6 +22,12 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   width: 29px;
   height: 29px;
 }
+.icon-close {
+  background-image: url(../images/sprite-map.png);
+  background-position: -109px 0px;
+  width: 24px;
+  height: 24px;
+}
 .icon-facebook-hover {
   background-image: url(../images/sprite-map.png);
   background-position: 0px -36px;

@@ -2,10 +2,12 @@ jQuery(function() {
     jQuery(document).foundation();
     jQuery('.fancybox').fancybox({
         maxWidth: 600,
+        scrolling: 'no',
         helpers: {
             overlay: {
                 locked: false
-            }
+            },
+            title: false
         }
     });
     jQuery('.slick').slick();

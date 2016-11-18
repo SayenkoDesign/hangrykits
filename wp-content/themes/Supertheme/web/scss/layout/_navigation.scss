@@ -72,23 +72,33 @@ body:not(.ie) .title-bar {
   background-color: $dark-gray;
   .off-canvas {
     position: absolute;
+    margin-top: rem-calc(18px);
   }
   .close-button {
     color: $light-gray;
+    top: rem-calc(-9px);
     &:hover {
       color: $white;
     }
   }
-  .menu a {
-    color: $light-gray;
-    &:hover {
-      color: $white;
+  .menu {
+    a {
+      color: $light-gray;
+      padding-left: rem-calc(32px);
+      text-transform: uppercase;
+      &:hover {
+        color: $white;
+      }
     }
   }
   .sub-menu {
+    margin-left: rem-calc(32px);
     list-style-type: none;
     a {
-      padding: 0.7rem 1rem
+      color: #c3c3c3;
+      font-size: rem-calc(15px);
+      padding: 0.7rem 1rem;
+      text-transform: capitalize;
     }
   }
 }

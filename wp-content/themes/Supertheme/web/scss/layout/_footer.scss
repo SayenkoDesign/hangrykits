@@ -12,6 +12,7 @@
   ul:not(.horizontal) {
     list-style-type: none;
     margin-left: 0;
+    margin-bottom: $global-margin*2;
     flex-wrap: wrap;
     li {
       flex: 0 0 100%;
@@ -20,6 +21,9 @@
         padding: $global-padding*0.5 0;
       }
     }
+  }
+  .footer-2 {
+    > ul { margin-left: $global-margin*2; }
   }
   .menu, .product-categories {
     font-size: rem-calc(12px);
@@ -93,8 +97,8 @@
     width: 100%;
     padding: rem-calc(8px) rem-calc(16px) !important;
     height: 45px;
-    border-bottom-left-radius: rem-calc(16px);
-    border-top-left-radius: rem-calc(16px);
+    border-bottom-left-radius: $button-radius;
+    border-top-left-radius: $button-radius;
     background-color: $medium-gray;
     box-shadow: none;
     &:focus, &:active {
@@ -131,7 +135,7 @@
     font-weight: $global-weight-bold;
     font-family: $header-font-family;
     padding: 0.85em !important;
-    border-radius: 0 rem-calc(16px) rem-calc(16px) 0;
+    border-radius: 0 $button-radius $button-radius 0;
     background-color: map-get($foundation-palette, primary);
     border: 1px solid map-get($foundation-palette, primary);
     color: $white;

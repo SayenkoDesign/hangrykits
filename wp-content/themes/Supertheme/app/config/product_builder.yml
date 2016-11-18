@@ -13,7 +13,7 @@ active: 1
 description:
 fields:
   -
-    key:  "field_tagline"
+    key:  "field_small_heading"
     label:  "Small Heading"
     name:  "small_heading"
     type:  "text"

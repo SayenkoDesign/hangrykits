@@ -31,8 +31,12 @@ if(function_exists('acf_add_local_field_group')){
 
 // global twig vars
 add_filter('timber/context', function($data){
-    $data['favicon'] = get_field('favicon', 'option') ?: get_field('mobile_logo', 'option');
+    $data['large_logo'] = get_field('logo', 'option');
+    $data['small_logo'] = get_field('mobile_logo', 'option') ?: $data['large_logo'];
+    $data['favicon'] = get_field('favicon', 'option') ?: $data['small_logo'];
     $data['shop_url'] = get_permalink(wc_get_page_id('shop'));
+    // user
+    $data['is_logged_in'] = is_user_logged_in();
     // menus
     $data['large_menu'] = wp_nav_menu([
         "theme_location" => is_user_logged_in() ? "loggedin_main_menu" : "loggedout_main_menu",
@@ -52,7 +56,6 @@ add_filter('timber/context', function($data){
     $data['highlights_header'] = get_field('highlights_heading', 'option');
     $data['highlights_box'] = get_field('highlights_box', 'option');
     $data['highlights'] = get_field('highlights', 'option');
-    //var_dump(get_field('highlights', 'option'));
     // widgets
     $data['sidebar'] = \Timber::get_widgets('sidebar');
     $data['footer_1'] = \Timber::get_widgets('footer_1');

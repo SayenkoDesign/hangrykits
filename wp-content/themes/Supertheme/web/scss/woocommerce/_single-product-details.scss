@@ -1,7 +1,8 @@
 .woocommerce article.single-product-details {
   padding-bottom: 0;
+  padding-top: $global-padding*2;
   .before-product {
-    padding: 0;
+    padding-top: $global-padding;
     background-color: $body-background;
   }
   .overview {
@@ -52,6 +53,9 @@
   .short-description {
     font-size: rem-calc(18px);
     margin-bottom: $global-margin*4;
+    li {
+      margin-bottom: $global-margin;
+    }
   }
   .contents {
     padding-bottom: $global-margin*4;
@@ -83,7 +87,7 @@
       }
     }
     .list {
-      line-height: 1.9;
+      line-height: 2;
       a {
         color: $body-font-color;
         &:hover, .fa {
@@ -93,6 +97,7 @@
     }
     ul.no-bullet {
       margin-bottom: $global-margin;
+      line-height: 2;
       @include breakpoint(medium) {
         margin-bottom: $global-margin*4;
       }

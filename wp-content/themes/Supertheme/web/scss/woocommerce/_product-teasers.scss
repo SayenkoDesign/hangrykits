@@ -1,6 +1,9 @@
 .product-teasers {
   padding: $global-padding*4 0;
   background-color: $white;
+  .column {
+    margin-bottom: $global-padding*2;
+  }
   h2 {
     margin: 0 !important;
     font-family: $header-font-family !important;
@@ -18,7 +21,6 @@
     }
   }
   img {
-    height: 280px;
     margin-bottom: $global-margin;
   }
   h4 {
@@ -66,7 +68,7 @@
     padding: rem-calc(12px) rem-calc(48px);
   }
 }
-.archive {
+.post-type-archive {
   .hero {
     background: none !important;;
   }
@@ -88,7 +90,25 @@
       opacity: 0.5;
     }
     .bar {
-      display: none;
+      background-color: transparent;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 1px;
+        background-color: rgba($white, 0.5);
+        width: calc(100% - 8rem);
+        right: 8rem;
+      }
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 1px;
+        background-color: rgba($white, 0.5);
+        width: calc(100% - 8rem);
+        left: 8rem;
+      }
     }
     .weight {
       background: none;

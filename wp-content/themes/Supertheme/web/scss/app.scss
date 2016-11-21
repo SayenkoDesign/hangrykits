@@ -41,6 +41,14 @@ mark {
   font-weight: $global-weight-bold;
 }
 
+.search-submit {
+  @include button($white, $primary-color);
+  width: auto;
+  font-family: $header-font-family;
+  text-transform: uppercase;
+  font-weight: $global-weight-bold;
+}
+
 // cart
 #cart {
   display: none;
@@ -124,9 +132,6 @@ mark {
     bottom: rem-calc(96px);
     right: rem-calc(48px);
   };
-  @include breakpoint(xlarge) {
-    right: calc(50% - 600px + 16px);
-  }
   &:hover, &:active, &:focus {
     color: $white;
     background-color: scale_color(map-get($foundation-palette, primary), $lightness: -14%);
@@ -170,8 +175,11 @@ i.fa.fa-star, i.fa.fa-star-half-o {
 }
 
 // woo commerce buttons
+.woocommerce a.button {
+  border-radius: rem-calc(8px);
+}
 .woocommerce a.add-cart, .woocommerce a.add-wishlist {
-  font-size: rem-calc(11px);
+  font-size: rem-calc(14px);
   padding: rem-calc(12px) rem-calc(36px);
   margin-bottom: $global-margin;
   @include breakpoint(medium) {
@@ -202,7 +210,10 @@ i.fa.fa-star, i.fa.fa-star-half-o {
 .wl-intro h2 {
   font-size: rem-calc(20px);
 }
+.wishlist-register {
+  padding: $global-padding*4 0;
 
+}
 // background for shop related pages
 .woocommerce-page .off-canvas-content, .woocommerce-page .off-canvas-content {
   background-color: $white;
@@ -363,4 +374,13 @@ table tbody tr:nth-child(2n) {
 // coupons {
 .coupon-container.blue {
   background-color: $light-gray;
+}
+
+
+// woo commerce overwrites
+.blog-teaser {
+  margin-bottom: $global-margin*2;
+}
+article.post-type-post {
+  padding-top: 0;
 }

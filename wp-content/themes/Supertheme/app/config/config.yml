@@ -6,7 +6,7 @@ parameters:
   twig.options:
     debug:            "%WP_DEBUG%"
     charset:          "utf-8"
-    cache:            "%template_dir%/var/twig"
+    cache:            ~
     auto_reload:      "%WP_DEBUG%"
     strict_variables: "%WP_DEBUG%"
     autoescape:       false
@@ -22,9 +22,10 @@ parameters:
   wordpress.translations: "%template_dir%/languages"
   wordpress.image_sizes:
     fullscreen: [1920, 1080, true]
+    teaser: [590, 456, true]
   wordpress.menus:
-    loggedin_main_menu: "Main Menu for logged in users"
-    loggedout_main_menu: "Main Menu for guest (users who are not logged in)"
+    #loggedin_main_menu: "Main Menu for logged in users"
+    #loggedout_main_menu: "Main Menu for guest (users who are not logged in)"
     loggedin_side_menu: "Side Menu for logged in users"
     loggedout_side_menu: "Side Menu for guest (users who are not logged in)"
   wordpress.sidebars:

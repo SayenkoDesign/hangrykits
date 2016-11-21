@@ -6,8 +6,9 @@ use Timber\Timber;
 $timber = $container->get('timber');
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
-$templates = ['index.html.twig'];
+$templates = ['archive.html.twig', 'index.html.twig'];
 if ( is_home() ) {
+    $context['title'] = "Blog";
     array_unshift($templates, 'home.html.twig');
 }
 $timber::render($templates, $context);

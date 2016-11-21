@@ -3,7 +3,7 @@
     {% block product_image %}
         <a href="{{ function("get_post_permalink", post.ID) }}" class="featured">
             {% if function("get_the_post_thumbnail", post.ID) %}
-                {{ function("get_the_post_thumbnail", post.ID) }}
+                {{ function("get_the_post_thumbnail", post.ID, "teaser") }}
             {% else %}
                 <img src="/wp-content/plugins/woocommerce/assets/images/placeholder.png" alt="">
             {% endif %}

@@ -11,6 +11,11 @@ jQuery(function() {
         }
     });
     jQuery('.slick').slick();
+    if(jQuery('.logged-in')) {
+        jQuery('.add-wishlist').on("click", function () {
+            
+        });
+    }
 });
 
 jQuery('.scroll-top').on("click", function(e){

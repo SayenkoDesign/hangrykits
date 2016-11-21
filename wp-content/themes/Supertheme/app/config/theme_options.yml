@@ -34,26 +34,7 @@ fields:
     instructions:  ""
     required:  1
     conditional_logic:  0
-    wrapper:  {width:  33, class:  "", id:  "" }
-    return_format:  "array"
-    preview_size:  "thumbnail"
-    library:  "all"
-    min_width:  ""
-    min_height:  ""
-    min_size:  ""
-    max_width:  ""
-    max_height:  ""
-    max_size:  ""
-    mime_types:  ""
-  -
-    key:  "field_57d9c7e5a615f"
-    label:  "Mobile Logo"
-    name:  "mobile_logo"
-    type:  "image"
-    instructions:  ""
-    required:  1
-    conditional_logic:  0
-    wrapper:  { width:  33, class:  "", id:  "" }
+    wrapper:  {width:  50, class:  "", id:  "" }
     return_format:  "array"
     preview_size:  "thumbnail"
     library:  "all"
@@ -72,7 +53,7 @@ fields:
     instructions:  ""
     required:  0
     conditional_logic:  0
-    wrapper:  { width:  34, class:  "", id:  "" }
+    wrapper:  { width:  50, class:  "", id:  "" }
     return_format:  "array"
     preview_size:  "thumbnail"
     library:  "all"

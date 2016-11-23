@@ -5,6 +5,11 @@
     @include breakpoint(large) {
       top: -1*($global-padding*4+7rem);
     }
+    img {
+      @include breakpoint(small only) {
+        display: none;
+      }
+    }
   }
   .promotion-cta {
     @include breakpoint(large) {

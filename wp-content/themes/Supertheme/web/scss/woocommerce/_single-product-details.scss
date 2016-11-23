@@ -19,7 +19,9 @@
         padding-left: rem-calc(20px);
       }
       .row > div:nth-child(2) {
-        padding: 0;
+        @include breakpoint(medium) {
+          padding: 0;
+        }
       }
     }
     h3 {
@@ -100,6 +102,15 @@
       line-height: 2;
       @include breakpoint(medium) {
         margin-bottom: $global-margin*4;
+      }
+    }
+    .align-center {
+      @include breakpoint(small only) {
+        padding-bottom: $global-margin*4;
+        justify-content: flex-start;
+      }
+      @include breakpoint(medium only) {
+        justify-content: flex-start;
       }
     }
   }

@@ -13,12 +13,10 @@
 {% endblock %}
 {% block hero_content %}
     <div class="content">
-        <h1>{% if title %}{{ title }}{% else %}So much snacks!!{% endif %}</h1>
+        <h1>{% if title %}{{ title }}{% else %}Snack Me, I'm Hangry!!{% endif %}</h1>
         {% if category %}
         {% elseif post.get_field('header_content') | wpautop %}
             {{ post.get_field('header_content') | wpautop}}
-        {% else %}
-            <p>Hangry Kits will save you!</p>
         {% endif %}
     </div>
 {% endblock %}

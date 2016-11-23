@@ -66,7 +66,11 @@ if (is_singular('product')) {
     $timber::render('woocommerce/single-product.html.twig', $context);
 }
 else {
-    $posts = $timber::get_posts();
+    $posts = $timber::get_posts([
+        'post_type' => 'product',
+        'numberposts' => -1,
+        'orderby' => 'date',
+    ]);
     $context['products'] = $posts;
 
     if ( is_product_category() ) {

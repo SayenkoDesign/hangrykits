@@ -133,6 +133,19 @@ add_action('init',function () use($wp) {
     $wp->add_query_var('comments_sort', get_option('comment_order'));
 });
 
+// use ajax to update the cart icon
+add_action('wp_enqueue_scripts', function() {
+    wp_localize_script('app', 'cart', array(
+        'ajax_url' => admin_url('admin-ajax.php')
+    ));
+});
+add_action('wp_ajax_nopriv_count_cart', 'update_cart_ajax');
+add_action('wp_ajax_count_cart', 'update_cart_ajax');
+function update_cart_ajax() {
+    echo WC()->cart->get_cart_contents_count();
+    wp_die();
+}
+
 // shortcode for lightbox
 add_shortcode('fancybox', function($atts, $content){
     $settings = shortcode_atts([

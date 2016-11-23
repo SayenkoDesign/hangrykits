@@ -14,10 +14,10 @@
     font-weight:bold;
     margin-bottom: $global-margin*3;
   }
-  a.featured {
-    transition: opacity 0.5s linear;
+  a.featured img {
+    transition: 0.3s ease;
     &:hover {
-      opacity: 0.5;
+      transform: scale(1.25, 1.25);
     }
   }
   img {
@@ -68,9 +68,9 @@
     padding: rem-calc(12px) rem-calc(48px);
   }
 }
-.post-type-archive {
+.post-type-archive, .page-template-template-shop {
   .hero {
-    background: none !important;;
+    background: none !important;
   }
   .product-teasers {
     background: none;

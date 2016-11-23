@@ -91,9 +91,17 @@ body:not(.ie) .title-bar {
 
 .off-canvas-wrapper {
   background-color: $dark-gray;
+  &:focus {
+    border: none;
+    outline: none;
+  }
   .off-canvas {
     position: absolute;
     margin-top: rem-calc(18px);
+    &:focus {
+      border: none;
+      outline: none;
+    }
   }
   .close-button {
     color: $light-gray;

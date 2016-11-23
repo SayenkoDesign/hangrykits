@@ -23,7 +23,7 @@
     }
   }
   .footer-2 {
-    > ul { margin-left: $global-margin*2; }
+    > ul { @include breakpoint(medium) { margin-left: $global-margin*2; } }
   }
   .menu, .product-categories {
     font-size: rem-calc(12px);

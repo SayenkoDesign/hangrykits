@@ -36,7 +36,7 @@
     {% endblock %}
     {% block product_add %}
         <div>
-            <a href="{{ function('do_shortcode', '[add_to_cart_url id="'~product.id~'"]') }}" class="expand primary button add-cart">Add | ${{ product.get_price() }}</a>
+            <a href="{{ function('do_shortcode', '[add_to_cart_url id="'~product.id~'"]') }}" class="expand primary button add-cart">Add &nbsp; | &nbsp; ${{ product.get_price() }}</a>
         </div>
     {% endblock %}
     {% block product_excerpt %}

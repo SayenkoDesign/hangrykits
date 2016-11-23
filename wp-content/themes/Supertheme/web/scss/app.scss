@@ -173,7 +173,10 @@ mark {
 i.fa.fa-star, i.fa.fa-star-half-o {
   color: map-get($foundation-palette, primary);
 }
-
+// register
+.woocommerce form.register {
+  margin: 0;
+}
 // woo commerce buttons
 .woocommerce a.button {
   border-radius: rem-calc(8px);

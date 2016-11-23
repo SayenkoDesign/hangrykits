@@ -73,7 +73,7 @@
                         <a class="expand secondary button add-wishlist" href="{{ function('add_query_arg', {'add-to-wishlist-itemid': product.id}) }}">Add to wishlist</a>
                     </div>
                     <div class="small-12 medium-6 large-4 columns large-text-center">
-                        <a href="{{ function('do_shortcode', '[add_to_cart_url id="'~product.id~'"]') }}" class="expand primary button add-cart">Add | ${{ product.get_price() }}</a>
+                        <a href="{{ function('do_shortcode', '[add_to_cart_url id="'~product.id~'"]') }}" class="expand primary button add-cart">Add &nbsp; | &nbsp; ${{ product.get_price() }}</a>
                     </div>
                 </div>
             </div>

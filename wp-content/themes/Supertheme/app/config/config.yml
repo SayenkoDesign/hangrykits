@@ -35,11 +35,12 @@ parameters:
     - { id: "footer_3", name: "Footer 3", description: "Third footer column" }
     - { id: "footer_4", name: "Footer 4", description: "Fourth footer column" }
   wordpress.styles:
+    - { id: "montserrat", source: "https://fonts.googleapis.com/css?family=Montserrat:400,700", deps: ~ }
     - { id: "fancybox", source: "%template_uri%/web/libs/fancybox/source/jquery.fancybox.css", deps: ~ }
-    - { id: "app", source: "%template_uri%/web/stylesheets/app.css", deps: ['fancybox'] }
+    - { id: "app", source: "%template_uri%/web/stylesheets/app.css", deps: ['fancybox', 'montserrat'] }
   wordpress.scripts:
-    - { id: "app", source: "%template_uri%/web/scripts-min/app.min.js", deps: ['jquery'], header: false }
-    - { id: "share", source: "http://w.sharethis.com/button/buttons.js?publisher=31abfba6-0978-4139-8479-d6e96f61d25f-10exp-N&product=widget", deps: ~, header: false }
+    - { id: "share", source: "https://ws.sharethis.com/button/buttons.js?publisher=31abfba6-0978-4139-8479-d6e96f61d25f-10exp-N", deps: ~, header: false }
+    - { id: "app", source: "%template_uri%/web/scripts-min/app.min.js", deps: ['jquery', 'share'], header: false }
 
 services:
   # just the basics

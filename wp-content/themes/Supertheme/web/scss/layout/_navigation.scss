@@ -135,3 +135,10 @@ body:not(.ie) .title-bar {
     }
   }
 }
+.flash-sale {
+  font-family: $header-font-family;
+  background-color: map-get($foundation-palette, primary);
+  color: $white;
+  padding: $global-padding/2 0;
+  margin: -1.5 * $global-margin 0 1.5 * $global-padding 0;
+}

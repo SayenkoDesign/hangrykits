@@ -69,6 +69,8 @@ add_filter('timber/context', function($data){
     $data['pinterest'] = get_field('pinterest', 'option');
     // copyright
     $data['copyright'] = get_field('copyright', 'option');
+    // sale
+    $data['promotion'] = get_field('promotion', 'option');
     // hero
     $data['hero_background'] = get_field('header_background', 'option');
     // woocommerce

@@ -11,6 +11,22 @@ instruction_placement: label
 hide_on_screen: ""
 fields:
   -
+    key:  "field_promotion"
+    label:  "Promotion"
+    name:  "promotion"
+    type:  "text"
+    instructions:  "Promote a sale or deal above the menu?"
+    required:  0,
+    conditional_logic:  0,
+    wrapper:  { width:  "", class:  "", id:  "" }
+    default_value:  ""
+    placeholder:  ""
+    prepend:  ""
+    append:  ""
+    maxlength:  ""
+    readonly:  0,
+    disabled:  0
+  -
     key:  "field_57d9b0cfe4c9f"
     label:  "Google Analytics ID"
     name:  "google_analytics_id"

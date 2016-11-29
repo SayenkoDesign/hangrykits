@@ -171,6 +171,6 @@ remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' 
 
 // disable strict password requirements
 function reduce_woocommerce_min_strength_requirement( $strength ) {
-    return 2;
+    return 1;
 }
 add_filter( 'woocommerce_min_password_strength', 'reduce_woocommerce_min_strength_requirement' );
